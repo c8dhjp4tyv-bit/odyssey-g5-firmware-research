@@ -1,0 +1,15 @@
+interface,layer,address_or_function,direction,evidence,confidence,unresolved
+UART,SPARC vendor service,0xA002C194,status/read,called by printf-like 0x127854 before transmit,HIGH,physical UART instance and baud
+UART,SPARC vendor service,0xA002C1A0,byte/write,called by printf-like 0x127854 for character and CR,HIGH,physical UART pins and baud
+PWM,main SPARC,0x1A77B8 and 0x1A8194,backlight/write,dynamic-PWM and LED-driver-PWM call paths,HIGH,final register address bit assignments
+I2C,main SPARC,0x1A8480,backlight/write,compiled LED-driver I2C dimming path,HIGH,whether selected on G55C (selector returns global PWM)
+GPIO/panel-power,main SPARC,0x117A64,output,SecHalBoard_SetPanelPower debug anchor,HIGH,GPIO number polarity and board net
+GPIO/backlight,main SPARC,0x117D64 and 0x117DE4,output,backlight on/off debug anchors,HIGH,GPIO number polarity and board net
+ADC/joystick,8051 STBC,record 1,input,PWR_DPMS ADC key and reachable key paths,HIGH,ADC channel thresholds and exact SFRs
+SPI flash,8051 boot/STBC,records 0 and 1,read/write,JEDEC IDs quad-mode setup and flash routines,HIGH,controller SFR bit map and physical flash part on tested board
+USB host/filesystem,8051 updater,record 2,bidirectional,FAT/NTFS load-file and ISP command state,HIGH,USB controller register map
+mailbox,8051-SPARC,records 1/2 and main app,bidirectional,Leon RUN/STOP update and power commands,HIGH,message envelope fields
+HDMI/DP PHY,link SPARC,record 7,bidirectional,PreAEQ/RunAEQ register-service calls and runtime PHY state,HIGH,underlying PHY MMIO register names
+CEC,8051 STBC,record 1,bidirectional,power/source/device-control diagnostic strings and reachable calls,HIGH,CEC SFR and pin mapping
+USB-C CC/PD,8051 STBC,record 1,bidirectional,SNK startup current advertisement hard-reset and Attention paths,HIGH,whether hardware populated on this exact board
+panel zones,main SPARC,common LDC library,output,segment arithmetic exists but full setup has no external direct caller,UNRESOLVED,no verified zone bus driver or physical zone topology

@@ -1,0 +1,159 @@
+{
+  "main_companion": {
+    "record": 4,
+    "flash_target": 1032192,
+    "offset": 180,
+    "signature": 96000000,
+    "entry_count": 17,
+    "entries": [
+      {
+        "id": 0,
+        "string_pointer": 2071192
+      },
+      {
+        "id": 1,
+        "string_pointer": 2071208
+      },
+      {
+        "id": 2,
+        "string_pointer": 2071240
+      },
+      {
+        "id": 3,
+        "string_pointer": 2071288
+      },
+      {
+        "id": 4,
+        "string_pointer": 2071344
+      },
+      {
+        "id": 5,
+        "string_pointer": 2071384
+      },
+      {
+        "id": 6,
+        "string_pointer": 2071416
+      },
+      {
+        "id": 7,
+        "string_pointer": 2071448
+      },
+      {
+        "id": 8,
+        "string_pointer": 2071488
+      },
+      {
+        "id": 9,
+        "string_pointer": 2071504
+      },
+      {
+        "id": 10,
+        "string_pointer": 2071552
+      },
+      {
+        "id": 11,
+        "string_pointer": 2071584
+      },
+      {
+        "id": 32,
+        "string_pointer": 2071616
+      },
+      {
+        "id": 40,
+        "string_pointer": 2071656
+      },
+      {
+        "id": 36,
+        "string_pointer": 2071680
+      },
+      {
+        "id": 42,
+        "string_pointer": 2071728
+      },
+      {
+        "id": 43,
+        "string_pointer": 2071744
+      }
+    ],
+    "end_offset": 320
+  },
+  "link_companion": {
+    "record": 8,
+    "flash_target": 679936,
+    "offset": 0,
+    "signature": 96000000,
+    "entry_count": 17,
+    "entries": [
+      {
+        "id": 0,
+        "string_pointer": 2684771144
+      },
+      {
+        "id": 1,
+        "string_pointer": 2684771160
+      },
+      {
+        "id": 2,
+        "string_pointer": 2684771192
+      },
+      {
+        "id": 3,
+        "string_pointer": 2684771240
+      },
+      {
+        "id": 4,
+        "string_pointer": 2684771296
+      },
+      {
+        "id": 5,
+        "string_pointer": 2684771336
+      },
+      {
+        "id": 6,
+        "string_pointer": 2684771368
+      },
+      {
+        "id": 7,
+        "string_pointer": 2684771400
+      },
+      {
+        "id": 8,
+        "string_pointer": 2684771440
+      },
+      {
+        "id": 9,
+        "string_pointer": 2684771456
+      },
+      {
+        "id": 10,
+        "string_pointer": 2684771504
+      },
+      {
+        "id": 11,
+        "string_pointer": 2684771536
+      },
+      {
+        "id": 32,
+        "string_pointer": 2684771568
+      },
+      {
+        "id": 40,
+        "string_pointer": 2684771608
+      },
+      {
+        "id": 36,
+        "string_pointer": 2684771632
+      },
+      {
+        "id": 42,
+        "string_pointer": 2684771680
+      },
+      {
+        "id": 43,
+        "string_pointer": 2684771696
+      }
+    ],
+    "end_offset": 140
+  },
+  "same_trap_id_sequence": true
+}

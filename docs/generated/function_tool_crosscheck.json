@@ -1,0 +1,93 @@
+{
+  "regions": [
+    {
+      "region": "main_sparc",
+      "tool_counts": {
+        "IDA": 3074,
+        "Ghidra": 3514,
+        "raw_scanner": 3602
+      },
+      "union": 3625,
+      "all_tools_intersection": 2977,
+      "membership_counts": {
+        "Ghidra": 23,
+        "Ghidra+IDA+raw_scanner": 2977,
+        "Ghidra+raw_scanner": 514,
+        "IDA+raw_scanner": 97,
+        "raw_scanner": 14
+      }
+    },
+    {
+      "region": "link_sparc",
+      "tool_counts": {
+        "IDA": 565,
+        "Ghidra": 590
+      },
+      "union": 597,
+      "all_tools_intersection": 558,
+      "membership_counts": {
+        "Ghidra": 32,
+        "Ghidra+IDA": 558,
+        "IDA": 7
+      }
+    },
+    {
+      "region": "boot8051",
+      "tool_counts": {
+        "IDA": 46,
+        "Ghidra": 34,
+        "raw_scanner": 34
+      },
+      "union": 53,
+      "all_tools_intersection": 29,
+      "membership_counts": {
+        "Ghidra": 3,
+        "Ghidra+IDA": 1,
+        "Ghidra+IDA+raw_scanner": 29,
+        "Ghidra+raw_scanner": 1,
+        "IDA": 15,
+        "IDA+raw_scanner": 1,
+        "raw_scanner": 3
+      }
+    },
+    {
+      "region": "stbc8051",
+      "tool_counts": {
+        "Ghidra": 289,
+        "raw_scanner": 226
+      },
+      "union": 316,
+      "all_tools_intersection": 199,
+      "membership_counts": {
+        "Ghidra": 90,
+        "Ghidra+raw_scanner": 199,
+        "raw_scanner": 27
+      }
+    },
+    {
+      "region": "updater8051",
+      "tool_counts": {
+        "Ghidra": 65,
+        "raw_scanner": 63
+      },
+      "union": 80,
+      "all_tools_intersection": 48,
+      "membership_counts": {
+        "Ghidra": 17,
+        "Ghidra+raw_scanner": 48,
+        "raw_scanner": 15
+      }
+    },
+    {
+      "region": "trap_sparc",
+      "tool_counts": {
+        "Ghidra": 69
+      },
+      "union": 69,
+      "all_tools_intersection": 69,
+      "membership_counts": {
+        "Ghidra": 69
+      }
+    }
+  ]
+}

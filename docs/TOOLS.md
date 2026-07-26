@@ -68,6 +68,64 @@ table and stops explicitly at computed dispatch. Embedded-symbol inference
 extracts function-like names from longer diagnostic strings; its ambiguity
 columns must be retained.
 
+## Strict coverage and registries
+
+```bash
+python3 tools/classify_firmware_bytes.py \
+  /path/to/firmware.img docs/generated/byte_classification.csv
+python3 tools/classify_indirect_control_flow.py \
+  docs/generated docs/generated/indirect_control_flow_detailed.csv
+python3 tools/build_hardware_access_map.py \
+  docs/generated/main_absolute_memory_refs.csv \
+  docs/generated/hardware_absolute_accesses.csv
+python3 tools/build_function_registry.py \
+  docs/generated docs/generated/function_registry.csv \
+  docs/generated/function_memory_effects.csv
+```
+
+The byte classifier rejects gaps, overlaps, malformed records, or violated
+padding/sentinel invariants. The registry never leaves a required field empty:
+missing names, boundaries, ABI, return semantics, and effects are explicitly
+`UNRESOLVED` with a reason.
+
+## Ghidra second-tool cross-check
+
+```bash
+python3 tools/run_ghidra_crosscheck.py \
+  /path/to/firmware.img docs/generated/ghidra
+python3 tools/compare_function_tools.py \
+  docs/generated docs/generated/function_tool_crosscheck.json
+```
+
+Temporary raw slices/projects are deleted; only derived metadata remains.
+Ghidra independently analyzes boot, STBC, updater, trap, main, and link
+regions. Address disagreements with IDA/raw recovery are preserved. The
+exporter intentionally records function entry addresses only: clean-project
+repetitions showed that some Ghidra-generated boundaries, switch labels, and
+call edges were scheduler-dependent. Two repetitions of the address-only
+catalog were byte-identical.
+
+To verify the deterministic boundary, generate a second output directory and
+compare it recursively:
+
+```bash
+python3 tools/run_ghidra_crosscheck.py \
+  /path/to/firmware.img /tmp/odyssey-ghidra-repeat
+diff -qr docs/generated/ghidra /tmp/odyssey-ghidra-repeat
+```
+
+## IDA reproduction material
+
+`tools/ida/odyssey_nvt_loader.py` offers six executable analysis views and
+maps both verified main code/data segments. `odyssey_types.h` contains only
+validated types. `apply_odyssey_symbols.py` applies unique debug-backed
+anchors; `export_ida_inventory.py` exports metadata.
+
+The loader source could not be CLI-smoke-tested locally because that IDA
+installation reported an unavailable command-line license and unconfigured
+Python target. The connected MCP database remains the actual IDA evidence;
+the loader is marked provided but runtime-unvalidated.
+
 ## SPARC V8 analysis emulator
 
 The research harness is a small dependency-free interpreter, not a
@@ -85,8 +143,9 @@ It was used as corroborating evidence, never as proof of real panel hardware.
 Hardware-dependent MMIO, USB co-processor behavior, flash programming, and
 TCON signaling are outside its model.
 
-The cleaned public release currently includes the deterministic image builder,
-verifier, and optimized-mode safety regression tests. The larger research
+The public release includes the deterministic image builder/verifier, static
+recovery and cross-tool scanners, generated catalogs, and regression tests.
+The larger research
 emulator is not public yet and should be published only after its generic tests
 and firmware-independent fixtures are separated from local analysis
 assumptions. Emulator-derived claims in this repository therefore include raw

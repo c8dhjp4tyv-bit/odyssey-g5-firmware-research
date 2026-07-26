@@ -1,0 +1,129 @@
+{
+  "filename": "M-C5500GGZA-1010.0[D43B].img",
+  "size": 3449760,
+  "sha256": "2e901cf2677b688d740dc62b279faedbee991c726ab5c3dcf75d156115cc96e7",
+  "sum16": 54331,
+  "magic": "7f4e565453435f494d470a",
+  "records": [
+    {
+      "index": 0,
+      "header_offset": 32,
+      "payload_offset": 64,
+      "target": 0,
+      "length": 32768,
+      "checksum_field": 4907,
+      "checksum_computed": 4907,
+      "checksum_status": "match",
+      "sha256": "c5dec25ed76b51f971e30fc7bde4f53b5c266f6ec3a570dc0a9e52584e2a6963",
+      "entropy": 2.4504
+    },
+    {
+      "index": 1,
+      "header_offset": 32832,
+      "payload_offset": 32864,
+      "target": 65536,
+      "length": 64192,
+      "checksum_field": 45356,
+      "checksum_computed": 45356,
+      "checksum_status": "match",
+      "sha256": "b5b2030f45305dbc09461b2c2e9a50619594674eb31ee825809a5936dbcad602",
+      "entropy": 6.7284
+    },
+    {
+      "index": 2,
+      "header_offset": 97056,
+      "payload_offset": 97088,
+      "target": 131072,
+      "length": 49536,
+      "checksum_field": 36336,
+      "checksum_computed": 36336,
+      "checksum_status": "match",
+      "sha256": "7c64c8dbb7e59935d616d912f26201590da23132d397fde66195a9fcb9cde3af",
+      "entropy": 6.2547
+    },
+    {
+      "index": 3,
+      "header_offset": 146624,
+      "payload_offset": 146656,
+      "target": 851968,
+      "length": 30560,
+      "checksum_field": 657,
+      "checksum_computed": 657,
+      "checksum_status": "match",
+      "sha256": "0f2186ef4f48c0f9e33b53c3c9d8a8d51d41a8b427483564633d46d5e1acd270",
+      "entropy": 5.811
+    },
+    {
+      "index": 4,
+      "header_offset": 177216,
+      "payload_offset": 177248,
+      "target": 1032192,
+      "length": 10336,
+      "checksum_field": 20441,
+      "checksum_computed": 20441,
+      "checksum_status": "match",
+      "sha256": "731afdd3afeed91bb3e1851be4bbf2da274df8a34c6fece4b05d54b12275e655",
+      "entropy": 4.207
+    },
+    {
+      "index": 5,
+      "header_offset": 187584,
+      "payload_offset": 187616,
+      "target": 1081344,
+      "length": 2031616,
+      "checksum_field": 4294967295,
+      "checksum_computed": 35208,
+      "checksum_status": "sentinel",
+      "sha256": "f026b7c81b9492ca4432e3fc6792df1e67446d2474d73894e6f3cff8b827c5b3",
+      "entropy": 3.9064
+    },
+    {
+      "index": 6,
+      "header_offset": 2219232,
+      "payload_offset": 2219264,
+      "target": 3112960,
+      "length": 1030592,
+      "checksum_field": 4294967295,
+      "checksum_computed": 44643,
+      "checksum_status": "sentinel",
+      "sha256": "940f5109b2d5ac1db2cae23f74fa3ce123d77fa992ea7c056c7576e61f2aa79d",
+      "entropy": 6.4873
+    },
+    {
+      "index": 7,
+      "header_offset": 3249856,
+      "payload_offset": 3249888,
+      "target": 327680,
+      "length": 195328,
+      "checksum_field": 63111,
+      "checksum_computed": 63111,
+      "checksum_status": "match",
+      "sha256": "b93353ada0b7f686937d9d5b78f37a52b10c266cec1c1a6234b3e2e948a310c9",
+      "entropy": 6.4149
+    },
+    {
+      "index": 8,
+      "header_offset": 3445216,
+      "payload_offset": 3445248,
+      "target": 679936,
+      "length": 4384,
+      "checksum_field": 44032,
+      "checksum_computed": 44032,
+      "checksum_status": "match",
+      "sha256": "25adef5dec19992607c490dddd54476756cf00a70e6a5cd637c66ad2f81d1cf4",
+      "entropy": 1.1296
+    },
+    {
+      "index": 9,
+      "header_offset": 3449632,
+      "payload_offset": 3449664,
+      "target": 24576,
+      "length": 96,
+      "checksum_field": 9487,
+      "checksum_computed": 9487,
+      "checksum_status": "match",
+      "sha256": "0042505d64997817675697598c97a6aa1445ffe1480544544d8d07781f936bd6",
+      "entropy": 3.2082
+    }
+  ]
+}

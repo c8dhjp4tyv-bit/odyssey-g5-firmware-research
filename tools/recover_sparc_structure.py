@@ -77,6 +77,17 @@ class CallbackBinding:
     callback_is_candidate_start: bool
 
 
+@dataclass(frozen=True)
+class DirectCallEdge:
+    site: int
+    file_offset: int
+    target: int
+    target_scope: str
+    ida_caller: str
+    structural_caller: int
+    caller_confidence: str
+
+
 def require(condition: bool, message: str) -> None:
     if not condition:
         raise ValueError(message)
@@ -212,6 +223,7 @@ def scan(
     list[IndirectSite],
     list[MemoryReference],
     list[CallbackBinding],
+    list[DirectCallEdge],
     dict[str, int],
 ]:
     code = image[MAIN_FILE_OFFSET : MAIN_FILE_OFFSET + MAIN_LENGTH]
@@ -223,6 +235,7 @@ def scan(
     ]
     direct_calls: dict[int, int] = {}
     direct_call_sites: dict[int, list[int]] = {}
+    all_direct_call_sites: list[tuple[int, int]] = []
     save_starts: set[int] = set()
     indirect_sites: list[IndirectSite] = []
     memory_references: list[MemoryReference] = []
@@ -250,6 +263,7 @@ def scan(
         if item["op"] == 1:
             displacement = signed(word & 0x3FFFFFFF, 30) << 2
             target = (address + displacement) & 0xFFFFFFFF
+            all_direct_call_sites.append((address, target))
             if MAIN_VA <= target < MAIN_VA + MAIN_LENGTH and target % 4 == 0:
                 direct_calls[target] = direct_calls.get(target, 0) + 1
                 direct_call_sites.setdefault(target, []).append(address)
@@ -416,13 +430,48 @@ def scan(
     callback_bindings.sort(
         key=lambda row: (row.slot, row.registration_site, row.callback)
     )
+    direct_call_edges: list[DirectCallEdge] = []
+    for site, target in all_direct_call_sites:
+        container = ida_function_at(site)
+        position = bisect.bisect_right(candidate_addresses, site) - 1
+        structural_caller = candidate_addresses[position] if position >= 0 else 0
+        direct_call_edges.append(
+            DirectCallEdge(
+                site=site,
+                file_offset=site - MAIN_VA + MAIN_FILE_OFFSET,
+                target=target,
+                target_scope=(
+                    "main-internal"
+                    if MAIN_VA <= target < MAIN_VA + MAIN_LENGTH
+                    else "external-or-runtime"
+                ),
+                ida_caller=(
+                    f"0x{int(container['address']):08X}:{container['name']}"
+                    if container
+                    else ""
+                ),
+                structural_caller=structural_caller,
+                caller_confidence=(
+                    "ida-container" if container else "nearest-candidate"
+                ),
+            )
+        )
+    direct_call_edges.sort(key=lambda row: (row.site, row.target))
     summary["static_callback_bindings"] = len(callback_bindings)
     summary["static_callback_slots"] = len({row.slot for row in callback_bindings})
+    summary["direct_call_edges"] = len(direct_call_edges)
+    summary["internal_direct_call_edges"] = sum(
+        row.target_scope == "main-internal" for row in direct_call_edges
+    )
+    summary["external_direct_call_edges"] = sum(
+        row.target_scope == "external-or-runtime" for row in direct_call_edges
+    )
     return (
         candidates,
         indirect_sites,
         memory_references,
         callback_bindings,
+        direct_call_edges,
         summary,
     )
 
@@ -447,6 +496,7 @@ def write_csv(path: Path, rows: list[object]) -> None:
                 "registration_site",
                 "callback",
                 "callback_file_offset",
+                "structural_caller",
             ):
                 if key in row:
                     row[key] = f"0x{row[key]:08X}"
@@ -477,6 +527,7 @@ def main() -> None:
         indirect_sites,
         memory_references,
         callback_bindings,
+        direct_call_edges,
         summary,
     ) = scan(image, ida_functions)
     args.output_dir.mkdir(parents=True, exist_ok=True)
@@ -484,6 +535,7 @@ def main() -> None:
     write_csv(args.output_dir / "indirect_sites.csv", indirect_sites)
     write_csv(args.output_dir / "absolute_memory_refs.csv", memory_references)
     write_csv(args.output_dir / "callback_bindings.csv", callback_bindings)
+    write_csv(args.output_dir / "direct_call_edges.csv", direct_call_edges)
     (args.output_dir / "summary.json").write_text(
         json.dumps(
             {

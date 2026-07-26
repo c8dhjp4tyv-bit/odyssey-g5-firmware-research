@@ -7,6 +7,11 @@ tekrarlanabilir araçlarını ve teknik bulgularını içerir. On kayıtlı pake
 kanıtla sınırlandırılan bilinmeyenleri incelenmiştir. Tam analiz girdisi
 `M-C5500GGZA-1010.0[D43B]`'dir.
 
+Katı kapsam denetimi; 3.449.760 baytın boşluksuz sınıflandırmasını, IDA/ham
+tarayıcı/Ghidra birleşiminden 4.740 girişlik fonksiyon kaydını, 409 indirect
+transferi ve 1.258 mutlak RAM/MMIO hedefini içerir. Kanıt bulunmayan alanlar
+uydurulmaz; gerekçeli `UNRESOLVED` olarak tutulur.
+
 Ulaşılan güvenli sonuç küçüktür: firmware'de zaten bulunan gizli `MGA`
 fabrika-kalibrasyon sayfası tek bir veri baytıyla görünür yapılmıştır.
 Yürütülebilir kod, bootloader, EDID, kalibrasyon değerleri, tuş dispatcher'ı ve
@@ -114,6 +119,11 @@ modunu test eder.
 - [İşlemciler, boot zinciri ve yardımcı denetleyiciler](docs/PROCESSORS_AND_BOOT.md)
 - [Ana SPARC uygulama/alt-sistem haritası](docs/MAIN_APPLICATION_MAP.md)
 - [Derin SPARC/8051 kontrol-akışı kurtarma](docs/DEEP_CONTROL_FLOW.md)
+- [Katı tamamlanma denetimi](docs/COMPLETENESS_AUDIT.md)
+- [Çıkarılan state machine'ler](docs/STATE_MACHINES.md)
+- [Donanım ve MMIO haritası](docs/HARDWARE_MAP.md)
+- [Statik-dinamik doğrulama](docs/DYNAMIC_VALIDATION.md)
+- [AI ve kanıt provenance](docs/PROVENANCE.md)
 - [Joystick olayları ve gizli menü hareketleri](docs/KEY_GESTURES.md)
 - [USB güncelleme zinciri ve dış-firmware stub'ları](docs/UPDATE_PIPELINE.md)
 - [Veri, kaynaklar, EDID ve kalıcı kayıt](docs/DATA_RESOURCES_AND_STORAGE.md)

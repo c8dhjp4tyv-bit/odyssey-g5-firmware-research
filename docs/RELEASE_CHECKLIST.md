@@ -23,7 +23,12 @@ operator checklist and must be completed again for every physical update.
 - [x] Generated catalogs contain metadata, not proprietary payload bytes.
 - [x] SPARC and 8051 structural catalogs regenerate byte-identically.
 - [x] Companion records 4 and 8 pass the homologous trap-schema validator.
-- [x] All 17 tests pass in normal and optimized Python modes.
+- [x] Strict-coverage tests pass in normal and optimized Python modes.
+- [x] Byte manifest covers exactly `0x34A3A0` bytes without a gap/overlap.
+- [x] Function registry contains the 4,740-entry cross-tool union.
+- [x] All 409 recovered indirect sites have an explicit dispatch class.
+- [x] Ghidra independently analyzed all six executable regions.
+- [x] AI, emulator, hardware, and unresolved provenance are separated.
 - [x] All local Markdown links resolve.
 
 ## Build

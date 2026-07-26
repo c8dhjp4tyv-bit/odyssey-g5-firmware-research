@@ -61,6 +61,15 @@ class ComputedJump:
     opcode: int
 
 
+@dataclass(frozen=True)
+class DirectCallEdge:
+    record_index: int
+    site: int
+    file_offset: int
+    target: int
+    target_internal: bool
+
+
 def signed_byte(value: int) -> int:
     return value - 0x100 if value & 0x80 else value
 
@@ -83,11 +92,17 @@ def vector_roots(code: bytes) -> set[int]:
 
 def analyze_record(
     code: bytes, record_index: int, payload_offset: int
-) -> tuple[list[FunctionCandidate], list[ComputedJump], dict[str, int]]:
+) -> tuple[
+    list[FunctionCandidate],
+    list[ComputedJump],
+    list[DirectCallEdge],
+    dict[str, int],
+]:
     roots = vector_roots(code)
     calls: Counter[int] = Counter()
     reachable: set[int] = set()
     computed: list[ComputedJump] = []
+    call_edges: list[DirectCallEdge] = []
     work = list(roots)
 
     while work:
@@ -104,10 +119,22 @@ def analyze_record(
         if opcode == 0x12:  # LCALL addr16
             target = (code[address + 1] << 8) | code[address + 2]
             calls[target] += 1
+            call_edges.append(
+                DirectCallEdge(
+                    record_index, address, payload_offset + address,
+                    target, 0 <= target < len(code),
+                )
+            )
             work.extend((target, following))
         elif opcode & 0x1F == 0x11:  # ACALL addr11
             target = absolute_11bit_target(address, opcode, code[address + 1])
             calls[target] += 1
+            call_edges.append(
+                DirectCallEdge(
+                    record_index, address, payload_offset + address,
+                    target, 0 <= target < len(code),
+                )
+            )
             work.extend((target, following))
         elif opcode == 0x02:  # LJMP addr16
             work.append((code[address + 1] << 8) | code[address + 2])
@@ -172,7 +199,7 @@ def analyze_record(
         ),
         "computed_jumps": len(computed),
     }
-    return functions, computed, summary
+    return functions, computed, call_edges, summary
 
 
 def write_csv(path: Path, rows: list[object]) -> None:
@@ -207,22 +234,25 @@ def main() -> None:
 
     all_functions: list[FunctionCandidate] = []
     all_computed: list[ComputedJump] = []
+    all_call_edges: list[DirectCallEdge] = []
     summaries = []
     for index in (0, 1, 2):
         record = records[index]
         code = image[
             record.payload_offset : record.payload_offset + record.length
         ]
-        functions, computed, summary = analyze_record(
+        functions, computed, call_edges, summary = analyze_record(
             code, index, record.payload_offset
         )
         all_functions.extend(functions)
         all_computed.extend(computed)
+        all_call_edges.extend(call_edges)
         summaries.append(summary)
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     write_csv(args.output_dir / "function_candidates.csv", all_functions)
     write_csv(args.output_dir / "computed_jumps.csv", all_computed)
+    write_csv(args.output_dir / "direct_call_edges.csv", all_call_edges)
     (args.output_dir / "summary.json").write_text(
         json.dumps({"image_sha256": digest, "records": summaries}, indent=2)
         + "\n",

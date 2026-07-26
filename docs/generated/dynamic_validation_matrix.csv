@@ -1,0 +1,17 @@
+claim,static_evidence,emulator,hardware,UART,runtime_memory,logic_analyzer,status,conclusion
+NVTSC ten-record layout,parser plus exact offsets/checksums,N/A,N/A,N/A,N/A,N/A,CONFIRMED,static format property independently testable
+Main SPARC mapping,absolute xrefs and coherent code/data segments,selected functions execute with mapped segments,final image boots,NONE,NONE,NONE,HIGH,runtime relocation not directly traced
+Link SPARC mapping,coherent A006xxxx pointers and record-8 companion,PreAEQ/RunAEQ execute,N/A,NONE,NONE,NONE,HIGH,runtime base coherent but loader handoff not traced
+Long-UP opens MGA,key enum and long-press remap,N/A,OBSERVED,NONE,NONE,NONE,CONFIRMED_ON_TEST_UNIT,static dispatcher discrepancy remains
+MGA supported byte controls page,descriptor renderer branch,renderer walks 35 rows,OBSERVED,NONE,NONE,NONE,CONFIRMED,release patch uses this byte
+MGA kind-4 conversion is unsafe,editor/resolver/store disassembly,sentinel target writes selectors and truncates range,NOT_FLASHED,NONE,NONE,NONE,CONFIRMED_EMULATOR,do not enable
+Factory Picture condition is shared,descriptor/state analysis,N/A,normal Game/Picture disappeared when enabled,NONE,NONE,NONE,CONFIRMED_HARDWARE,rejected patch
+EQ uses automatic training,PreAEQ/RunAEQ disassembly,candidates replaced by runtime RCT/CFT,N/A,NONE,NONE,NONE,CONFIRMED_STATIC_AND_EMULATOR,no manual EQ control
+Global PWM selected,selector returns zero and PWM call path,N/A,screen/backlight operated normally,NONE,NONE,NONE,HIGH,physical PWM net/register unresolved
+Spatial local-dimming hardware absent,full zone setup unreachable and no transport,N/A,NOT_TESTED,NONE,NONE,NONE,UNRESOLVED_HARDWARE,firmware cannot prove board topology
+Static callback registrations,27 slots/targets and invoker wrappers,N/A,N/A,NONE,NONE,NONE,HIGH,all runtime replacements unresolved
+MMIO register bit semantics,1258 absolute targets cataloged,N/A,N/A,NONE,NONE,NONE,UNRESOLVED,requires vendor docs/runtime/bus capture
+8051 reachable CFG,raw decoder plus Ghidra comparison,N/A,boot/update behavior observed indirectly,NONE,NONE,NONE,HIGH,computed dispatch targets remain unresolved
+Per-function parameters and returns,IDA inventory plus conservative UNRESOLVED registry fields,N/A,N/A,NONE,NONE,NONE,UNRESOLVED,stripped ABI requires call-site/manual/runtime analysis per entry
+One-hour 1-percent update state,update state-machine and cross-processor code,N/A,OBSERVED normal reboot after approximately one hour,NONE,NONE,NONE,UNRESOLVED_ROOT_CAUSE,needs synchronized UART/USB trace
+Final MGA-only image,hash-pinned two-byte diff and verifier,N/A,BOOTED and version/page observed,NONE,NONE,NONE,CONFIRMED_ON_TEST_UNIT,not generalized to other revisions

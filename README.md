@@ -10,6 +10,12 @@ PQ, source, storage and update subsystems, and bounded unknowns. The released
 modification remains deliberately small: one data flag makes the existing
 hidden `MGA` factory-calibration page visible.
 
+The strict audit additionally provides a gap-free classification of all
+3,449,760 bytes, a 4,740-entry cross-tool function registry, all 409 recovered
+indirect transfers, 1,258 absolute RAM/MMIO targets, data-structure and
+hardware ledgers, state-machine diagrams, and explicit AI/dynamic-validation
+provenance. See [the completeness audit](docs/COMPLETENESS_AUDIT.md).
+
 > [!WARNING]
 > This is owner-performed hardware research, not an official Samsung update.
 > Flashing modified firmware can permanently damage a monitor. The tested
@@ -118,6 +124,11 @@ Python modes.
 - [Processors, boot chain, and auxiliary controllers](docs/PROCESSORS_AND_BOOT.md)
 - [Main SPARC application/subsystem map](docs/MAIN_APPLICATION_MAP.md)
 - [Deep SPARC/8051 control-flow recovery](docs/DEEP_CONTROL_FLOW.md)
+- [Strict completeness audit](docs/COMPLETENESS_AUDIT.md)
+- [Recovered state machines](docs/STATE_MACHINES.md)
+- [Hardware and MMIO map](docs/HARDWARE_MAP.md)
+- [Static-to-dynamic validation](docs/DYNAMIC_VALIDATION.md)
+- [AI and evidence provenance](docs/PROVENANCE.md)
 - [Joystick events and hidden-menu gestures](docs/KEY_GESTURES.md)
 - [USB update pipeline and external-firmware stubs](docs/UPDATE_PIPELINE.md)
 - [Data, resources, EDID, and storage](docs/DATA_RESOURCES_AND_STORAGE.md)

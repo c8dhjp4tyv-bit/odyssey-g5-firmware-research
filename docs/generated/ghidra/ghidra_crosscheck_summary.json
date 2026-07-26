@@ -1,0 +1,55 @@
+{
+  "image_sha256": "2e901cf2677b688d740dc62b279faedbee991c726ab5c3dcf75d156115cc96e7",
+  "ghidra_headless": "/opt/ghidra/support/analyzeHeadless",
+  "ghidra_version": "12.1.2",
+  "regions": [
+    {
+      "region": "boot8051",
+      "file_offset": 64,
+      "length": 32768,
+      "runtime_base": 0,
+      "processor": "8051:BE:16:default",
+      "ghidra_function_starts": 34
+    },
+    {
+      "region": "stbc8051",
+      "file_offset": 32864,
+      "length": 64192,
+      "runtime_base": 0,
+      "processor": "8051:BE:16:default",
+      "ghidra_function_starts": 289
+    },
+    {
+      "region": "updater8051",
+      "file_offset": 97088,
+      "length": 49536,
+      "runtime_base": 0,
+      "processor": "8051:BE:16:default",
+      "ghidra_function_starts": 65
+    },
+    {
+      "region": "trap_sparc",
+      "file_offset": 146656,
+      "length": 30560,
+      "runtime_base": 2685272064,
+      "processor": "sparc:BE:32:default",
+      "ghidra_function_starts": 69
+    },
+    {
+      "region": "main_sparc",
+      "file_offset": 1236992,
+      "length": 982240,
+      "runtime_base": 1048576,
+      "processor": "sparc:BE:32:default",
+      "ghidra_function_starts": 3514
+    },
+    {
+      "region": "link_sparc",
+      "file_offset": 3249888,
+      "length": 195328,
+      "runtime_base": 2684747776,
+      "processor": "sparc:BE:32:default",
+      "ghidra_function_starts": 590
+    }
+  ]
+}

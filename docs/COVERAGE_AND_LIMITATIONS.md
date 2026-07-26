@@ -25,6 +25,13 @@ package region and claims are tied to evidence and confidence.
 
 ## Main-function classification
 
+The strict registry now uses the union of IDA, Ghidra, and raw recovered
+starts. It contains 4,740 entries across all executable records, including
+3,625 unique main-SPARC starts. Every row has address, file offset, size or an
+explicit boundary-disagreement reason, callers/callees, ABI fields,
+side-effect status, tool sources, confidence, and an `UNRESOLVED` reason where
+evidence is absent.
+
 Direct string-xref anchors classify at least:
 
 | Category | Directly anchored functions |
@@ -46,13 +53,12 @@ Direct string-xref anchors classify at least:
 
 Categories overlap. Another 788 previously unanchored IDA containers received
 one lower-confidence graph label by a conservative neighbor-voting rule.
-The old count of 1,928 unclassified IDA functions is retained as a **semantic**
-metric, not a structural gap. Raw recovery found 528 additional callable-entry
-candidates and demonstrated that IDA sometimes merges several independently
-called entries into one container. The generated catalogs now preserve all
-3,602 candidate entries, 387 indirect transfers, 8,022 absolute references,
-27 static callback bindings, and 411 function-like embedded-name candidates.
-Unknown arithmetic/register helpers remain honestly unnamed.
+The old count of 1,928 unclassified IDA containers is retained only as a
+historical semantic metric. There are now no blank registry classifications:
+unknown arithmetic/register helpers are named `UNRESOLVED`, with the reason
+and tool evidence recorded instead of a fabricated symbol. The generated
+catalogs preserve 409 indirect transfers, 8,022 absolute references, 27 static
+callback slots, and 411 function-like embedded-name candidates.
 
 For the auxiliary image, 259 of 565 functions have a direct or conservative
 graph-inferred category; 306 remain unclassified.

@@ -18,5 +18,8 @@
   "absolute_memory_references": 8022,
   "absolute_memory_targets": 1258,
   "static_callback_bindings": 27,
-  "static_callback_slots": 27
+  "static_callback_slots": 27,
+  "direct_call_edges": 20645,
+  "internal_direct_call_edges": 19828,
+  "external_direct_call_edges": 817
 }

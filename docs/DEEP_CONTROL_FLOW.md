@@ -23,6 +23,7 @@ scans the mapped main code and independently recognizes direct `CALL` targets,
 | Resolved absolute-memory references | 8,022 |
 | Distinct absolute targets | 1,258 |
 | Statically recovered callback bindings | 27 |
+| Raw direct-call edges | 20,645 (19,828 internal; 817 external/runtime) |
 
 The 528 new entries are kept separate from IDA's function inventory. A direct
 call target plus a `SAVE`, or a direct-call target immediately after a return
@@ -123,3 +124,23 @@ from known boundaries.
 - source-level names/types for stripped leaf arithmetic and register helpers.
 
 Those are recorded boundaries, not silently classified guesses.
+
+## Independent Ghidra comparison
+
+Ghidra headless independently recovered 3,514 main-SPARC starts. The
+IDA/Ghidra/raw union is 3,625: 2,977 are shared by all three, 514 by Ghidra
+and raw, 97 by IDA and raw, 23 are Ghidra-only, and 14 are raw-only.
+
+Only function entry addresses are used from Ghidra. Clean-project repetitions
+showed a few scheduler-dependent function boundaries and call edges in
+ambiguous stripped switch code; the reduced address catalogs repeated
+byte-identically. Ghidra-only sizes and relationships therefore remain
+explicitly unresolved.
+
+For link SPARC, IDA/Ghidra agree on 558 starts with a 597-start union. For the
+three 8051 payloads, Ghidra/raw intersections are 30/199/48 for
+boot/STBC/updater when the boot IDA view is considered separately. Exact
+membership counts are in
+[`function_tool_crosscheck.json`](generated/function_tool_crosscheck.json).
+No majority vote deletes a start: every unique tool result remains in the
+4,740-entry registry with its source/confidence.

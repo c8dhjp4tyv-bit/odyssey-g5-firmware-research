@@ -35,11 +35,12 @@ class Structure8051Tests(unittest.TestCase):
             ]
         )
 
-        functions, computed, summary = MODULE.analyze_record(code, 1, 0x100)
+        functions, computed, edges, summary = MODULE.analyze_record(code, 1, 0x100)
 
         self.assertEqual([row.address for row in functions], [0, 6])
         self.assertEqual(functions[1].direct_call_count, 1)
         self.assertEqual(computed, [])
+        self.assertEqual([(row.site, row.target) for row in edges], [(0, 6)])
         self.assertEqual(summary["reachable_instructions"], 3)
 
     def test_absolute_11bit_target_uses_current_page(self) -> None:

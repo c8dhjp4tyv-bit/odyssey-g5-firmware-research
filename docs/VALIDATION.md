@@ -95,11 +95,16 @@ diffs=0x273367,0x2D2776
 verification=PASS
 ```
 
-The current public suite contains 17 tests in each mode. It additionally
+The strict public suite contains 27 tests in each mode. It additionally
 checks the complete 8051 opcode-length table, direct-call recovery, SPARC
 `SAVE`/return/indirect-call decoding, cross-register delay-slot address
 recovery, callback slots, embedded-symbol mapping, and the companion-record
 exception schema.
+
+Completeness tests require a byte manifest from zero through `0x34A3A0`
+without gaps/overlaps, explicit required fields on every function registry
+row, reasons on unresolved entries, and exact accounting of every recovered
+indirect site.
 
 All generated structural artifacts were regenerated from the pinned private
 image and exported IDA metadata, then byte-compared with
@@ -111,6 +116,18 @@ SPARC catalogs:       byte-identical
 embedded-name CSVs:   byte-identical
 REPRODUCIBLE_OUTPUTS_PASS
 ```
+
+The later package-wide pipeline was likewise run into a fresh temporary
+directory from the pinned image, exported IDA inventory, and clean Ghidra
+projects. Every file produced by `regenerate_analysis.py` compared
+byte-identically with its checked-in counterpart:
+
+```text
+FULL_REGEN_BYTE_IDENTICAL_PASS
+```
+
+This verifies artifact reproducibility; it does not turn unresolved semantics
+into confirmed claims.
 
 ## Hardware observations
 

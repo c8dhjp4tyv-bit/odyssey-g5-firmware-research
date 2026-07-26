@@ -5,7 +5,7 @@
 ```text
 Exact model:  Samsung Odyssey G5 G55C 32-inch, LS32CG552EUXUF
 Firmware:     M-C5500GGZA-1010.0[D43B].img
-Size:         0x34A360 (3,449,760) bytes
+Size:         0x34A3A0 (3,449,760) bytes
 SHA-256:      2e901cf2677b688d740dc62b279faedbee991c726ab5c3dcf75d156115cc96e7
 sum16:        0xD43B
 CPU:          SPARC V8, 32-bit, big-endian

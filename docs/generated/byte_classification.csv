@@ -1,0 +1,67 @@
+start,end,length,record,classification,detail,confidence,evidence
+0x00000000,0x0000000B,0xB,global,HEADER,NVTSC_IMG magic,CONFIRMED,literal magic
+0x0000000B,0x00000020,0x15,global,UNRESOLVED,global header fields/reserved bytes; semantics not decoded,UNRESOLVED,container position and stable bytes only
+0x00000020,0x00000024,0x4,0,HEADER,flash target,CONFIRMED,big-endian record field
+0x00000024,0x00000028,0x4,0,HEADER,payload length,CONFIRMED,big-endian record field
+0x00000028,0x0000002C,0x4,0,CHECKSUM,payload byte-sum or sentinel,CONFIRMED,match
+0x0000002C,0x00000030,0x4,0,HEADER,record tag 0x04000000,CONFIRMED,validated constant
+0x00000030,0x00000040,0x10,0,PADDING,reserved zero bytes,CONFIRMED,validated all-zero
+0x00000040,0x00008040,0x8000,0,UNRESOLVED_MIXED_CODE_DATA,8051 boot executable with inline tables/data; per-byte code/data boundary unresolved,UNRESOLVED,reachable CFG and strings prove both classes
+0x00008040,0x00008044,0x4,1,HEADER,flash target,CONFIRMED,big-endian record field
+0x00008044,0x00008048,0x4,1,HEADER,payload length,CONFIRMED,big-endian record field
+0x00008048,0x0000804C,0x4,1,CHECKSUM,payload byte-sum or sentinel,CONFIRMED,match
+0x0000804C,0x00008050,0x4,1,HEADER,record tag 0x04000000,CONFIRMED,validated constant
+0x00008050,0x00008060,0x10,1,PADDING,reserved zero bytes,CONFIRMED,validated all-zero
+0x00008060,0x00017B20,0xFAC0,1,UNRESOLVED_MIXED_CODE_DATA,8051 STBC executable with inline tables/data; per-byte code/data boundary unresolved,UNRESOLVED,reachable CFG and strings prove both classes
+0x00017B20,0x00017B24,0x4,2,HEADER,flash target,CONFIRMED,big-endian record field
+0x00017B24,0x00017B28,0x4,2,HEADER,payload length,CONFIRMED,big-endian record field
+0x00017B28,0x00017B2C,0x4,2,CHECKSUM,payload byte-sum or sentinel,CONFIRMED,match
+0x00017B2C,0x00017B30,0x4,2,HEADER,record tag 0x04000000,CONFIRMED,validated constant
+0x00017B30,0x00017B40,0x10,2,PADDING,reserved zero bytes,CONFIRMED,validated all-zero
+0x00017B40,0x00023CC0,0xC180,2,UNRESOLVED_MIXED_CODE_DATA,8051 updater executable with inline tables/data; per-byte code/data boundary unresolved,UNRESOLVED,reachable CFG and strings prove both classes
+0x00023CC0,0x00023CC4,0x4,3,HEADER,flash target,CONFIRMED,big-endian record field
+0x00023CC4,0x00023CC8,0x4,3,HEADER,payload length,CONFIRMED,big-endian record field
+0x00023CC8,0x00023CCC,0x4,3,CHECKSUM,payload byte-sum or sentinel,CONFIRMED,match
+0x00023CCC,0x00023CD0,0x4,3,HEADER,record tag 0x04000000,CONFIRMED,validated constant
+0x00023CD0,0x00023CE0,0x10,3,PADDING,reserved zero bytes,CONFIRMED,validated all-zero
+0x00023CE0,0x0002B440,0x7760,3,UNRESOLVED_MIXED_CODE_DATA,SPARC trap/vector code with inline tables,UNRESOLVED,SPARC disassembly; exact inline-data boundaries incomplete
+0x0002B440,0x0002B444,0x4,4,HEADER,flash target,CONFIRMED,big-endian record field
+0x0002B444,0x0002B448,0x4,4,HEADER,payload length,CONFIRMED,big-endian record field
+0x0002B448,0x0002B44C,0x4,4,CHECKSUM,payload byte-sum or sentinel,CONFIRMED,match
+0x0002B44C,0x0002B450,0x4,4,HEADER,record tag 0x04000000,CONFIRMED,validated constant
+0x0002B450,0x0002B460,0x10,4,PADDING,reserved zero bytes,CONFIRMED,validated all-zero
+0x0002B460,0x0002DCC0,0x2860,4,DATA,main SPARC companion trap/runtime/config data,HIGH,"pointer tables, trap schema, named USB-data objects"
+0x0002DCC0,0x0002DCC4,0x4,5,HEADER,flash target,CONFIRMED,big-endian record field
+0x0002DCC4,0x0002DCC8,0x4,5,HEADER,payload length,CONFIRMED,big-endian record field
+0x0002DCC8,0x0002DCCC,0x4,5,CHECKSUM,payload byte-sum or sentinel,CONFIRMED,sentinel
+0x0002DCCC,0x0002DCD0,0x4,5,HEADER,record tag 0x04000000,CONFIRMED,validated constant
+0x0002DCD0,0x0002DCE0,0x10,5,PADDING,reserved zero bytes,CONFIRMED,validated all-zero
+0x0002DCE0,0x0003DCE0,0x10000,5,PADDING,0xFF application-container prefix,CONFIRMED,all bytes 0xFF
+0x0003DCE0,0x0012DCE0,0xF0000,5,PADDING,zero application-container prefix,CONFIRMED,all bytes zero
+0x0012DCE0,0x0012E000,0x320,5,HEADER,CHK marker/build metadata and padding,HIGH,AA557788/CHK marker; some fields unresolved
+0x0012E000,0x0021DCE0,0xEFCE0,5,UNRESOLVED_MIXED_CODE_DATA,main SPARC executable and inline constant tables,UNRESOLVED,IDA/raw CFG cover code; precise inline-table boundaries incomplete
+0x0021DCE0,0x0021DCE4,0x4,6,HEADER,flash target,CONFIRMED,big-endian record field
+0x0021DCE4,0x0021DCE8,0x4,6,HEADER,payload length,CONFIRMED,big-endian record field
+0x0021DCE8,0x0021DCEC,0x4,6,CHECKSUM,payload byte-sum or sentinel,CONFIRMED,sentinel
+0x0021DCEC,0x0021DCF0,0x4,6,HEADER,record tag 0x04000000,CONFIRMED,validated constant
+0x0021DCF0,0x0021DD00,0x10,6,PADDING,reserved zero bytes,CONFIRMED,validated all-zero
+0x0021DD00,0x003196C0,0xFB9C0,6,DATA,main strings/resources/descriptors/EDID/persistent defaults,HIGH,mapped data segment and xrefs
+0x003196C0,0x003196C4,0x4,7,HEADER,flash target,CONFIRMED,big-endian record field
+0x003196C4,0x003196C8,0x4,7,HEADER,payload length,CONFIRMED,big-endian record field
+0x003196C8,0x003196CC,0x4,7,CHECKSUM,payload byte-sum or sentinel,CONFIRMED,match
+0x003196CC,0x003196D0,0x4,7,HEADER,record tag 0x04000000,CONFIRMED,validated constant
+0x003196D0,0x003196E0,0x10,7,PADDING,reserved zero bytes,CONFIRMED,validated all-zero
+0x003196E0,0x003491E0,0x2FB00,7,UNRESOLVED_MIXED_CODE_DATA,link/EQ SPARC executable with inline tables,UNRESOLVED,IDA functions plus PreAEQ tables; exact boundaries incomplete
+0x003491E0,0x003491E4,0x4,8,HEADER,flash target,CONFIRMED,big-endian record field
+0x003491E4,0x003491E8,0x4,8,HEADER,payload length,CONFIRMED,big-endian record field
+0x003491E8,0x003491EC,0x4,8,CHECKSUM,payload byte-sum or sentinel,CONFIRMED,match
+0x003491EC,0x003491F0,0x4,8,HEADER,record tag 0x04000000,CONFIRMED,validated constant
+0x003491F0,0x00349200,0x10,8,PADDING,reserved zero bytes,CONFIRMED,validated all-zero
+0x00349200,0x0034A320,0x1120,8,DATA,link SPARC companion trap/runtime/config data,HIGH,validated homologous trap schema and pointers
+0x0034A320,0x0034A324,0x4,9,HEADER,flash target,CONFIRMED,big-endian record field
+0x0034A324,0x0034A328,0x4,9,HEADER,payload length,CONFIRMED,big-endian record field
+0x0034A328,0x0034A32C,0x4,9,CHECKSUM,payload byte-sum or sentinel,CONFIRMED,match
+0x0034A32C,0x0034A330,0x4,9,HEADER,record tag 0x04000000,CONFIRMED,validated constant
+0x0034A330,0x0034A340,0x10,9,PADDING,reserved zero bytes,CONFIRMED,validated all-zero
+0x0034A340,0x0034A388,0x48,9,DATA,nine footer partition target/length pairs,CONFIRMED,big-endian pair table
+0x0034A388,0x0034A3A0,0x18,9,PADDING,0xFFFFFFFF footer terminators,CONFIRMED,three sentinel pairs
