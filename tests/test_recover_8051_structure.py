@@ -12,6 +12,7 @@ MODULE_PATH = TOOLS / "recover_8051_structure.py"
 SPEC = importlib.util.spec_from_file_location("recover_8051_structure", MODULE_PATH)
 assert SPEC and SPEC.loader
 MODULE = importlib.util.module_from_spec(SPEC)
+sys.modules[SPEC.name] = MODULE
 SPEC.loader.exec_module(MODULE)
 
 
