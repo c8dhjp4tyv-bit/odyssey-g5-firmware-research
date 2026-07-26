@@ -8,14 +8,18 @@ classification.
 |---|---|---|
 | MGA page | Complete existing renderer table; one support byte | Visible in final build, read-only |
 | Factory Picture | Complete writable calibration table, but shared OSD condition | Rejected |
-| Low Input Lag | Already present; timing and blocker checks are real | Use stock OSD |
-| Adaptive-Sync/FreeSync | Already present; EDID/port checks are real | Use stock OSD |
-| VRR Control | Already present | Use stock OSD |
-| Contrast Enhancer | Already present with PQ handler | Use stock OSD |
-| HDR Tone Mapping | Already present with HDR/PQ path | Use stock OSD |
-| Dynamic Brightness | Already present; global dimming | Use stock OSD |
-| Local Dimming | Common string, but model selects global PWM and no zone engine was found | Do not enable |
+| Low Input Lag | Already present; timing and blocker checks are real | Use normal OSD |
+| Adaptive-Sync/FreeSync | Already present; EDID/port checks are real | Use normal OSD |
+| VRR Control | Already present | Use normal OSD |
+| Contrast Enhancer | Already present with PQ handler | Use normal OSD |
+| HDR Tone Mapping | Already present with HDR/PQ path | Use normal OSD |
+| Dynamic Brightness | Already present; global dimming | Use normal OSD |
+| Local Dimming | A common-platform LDC engine is compiled in, but this model selects global PWM and no panel-zone hardware/reachable model path was verified | Do not enable |
 | Ultrawide Game View | Common string only; no verified viewport/timing support | Do not enable |
+| PIP/PBP | Resource tables and real common scaler/capture paths exist; no active G55C menu/model capability or multi-input hardware path was verified | Do not enable |
+| Type-C / DP-out / USB hub | Common board/debug paths and labels exist; the tested unit's corresponding ports/controller topology was not established | Do not enable |
+| 3D LUT / VIP hue / custom saturation / custom brightness / post-offset | Callable factory-debug hooks exist, but they are low-level calibration controls rather than missing consumer features | Do not expose |
+| Gamma / OverDrive raw enables | Real scaler controls already used by normal PQ/game logic; bypassing policy can invalidate panel calibration | Do not expose |
 | TCON FW Update | UART/factory string without working command handler/payload | Do not enable |
 | TCON DATA Update | Same | Do not enable |
 | FPGA Update | String only; no payload or reachable action | Do not enable |
@@ -81,8 +85,84 @@ The dimming controller interprets:
 ```
 
 This build therefore selects global PWM. No spatial-zone histogram, zone
-brightness array, independent channel update loop, or verified panel-zone
-topology was found.
+brightness array tied to the G55C panel, independent G55C zone-driver update
+loop, or verified panel-zone topology was found.
+
+The negative conclusion is **not** based on strings alone. A reusable LDC
+implementation is present in the common scaler library:
+
+```sparc
+; DRV_LDC_SetPanelResolution-like routine
+; VA 0x129D64 / file 0x157D64
+129d64  save %sp, -0x68, %sp
+129d68  set 0x1F9F60, %o0      ; "DRV_LDC_SetPanelResolution,%u,%u"
+129d74  call 0x127854
+...
+129df4  sth %i1, [%g1+6]
+129df8  sth %i0, [%g1+4]
+129dfc  call 0x129B88
+```
+
+Related compiled routines reference `DRV_LDC_UpdateSegmentBoundary` at
+`VA 0x129E54` / file `0x157E54`, `DRV_LDC_SetLDCSegment` at
+`VA 0x12A074` / file `0x158074`, and intensity-gain update code at
+`VA 0x12A734` / file `0x158734`. The identified test/setup caller at
+`VA 0x1588B0` has no external code caller in the recovered direct-call graph.
+This is strong evidence of a shared-platform library and test surface, but
+not evidence that the G55C has addressable backlight zones. Forcing a resource
+flag would therefore cross a hardware boundary that was not verified.
+
+## Common-platform code is not a model unlock
+
+### PIP/PBP
+
+PIP/PBP is more than untranslated text. The main image contains resource
+descriptors (`PIP / PBP` at data `VA 0x1F59B0`, file `0x2236B0`), a runtime
+state formatter in `VA 0x10CDA4` / file `0x13ADA4`, capture branches in
+`VA 0x1AE9BC` / file `0x1DC9BC`, and no-signal OSD logic in
+`VA 0x1D7214` / file `0x205214`. Factory-debug dispatch also contains real
+`SetPipMode`, `SetPipSize`, and `SetPipPosition` calls.
+
+What is missing is equally important: no verified active G55C consumer-menu
+descriptor, no confirmed model gate that can safely be flipped, and no
+hardware proof that two simultaneous input pipelines are routed on this
+board/panel combination. Replacing a visible menu resource with PIP/PBP would
+only expose common library operations; it would not establish a safe source
+route. Decision: **AÇILMAMALI / DO NOT ENABLE**.
+
+### Type-C, DP-out, and USB hub
+
+The image contains `TYPEC`, DP-out-over-Type-C factory commands,
+`SecHalBoard_IsTypeCPowerOn`, and a USB-hub status debug command. These are
+shared board-support surfaces. The debug-string xrefs land in factory command
+dispatchers (`VA 0x195C20` for Type-C power and `VA 0x193D80` for USB-hub
+status), not in an identified G55C consumer-menu path. A software flag cannot
+create an absent Type-C connector, PD controller, DP-alt-mode mux, or hub.
+Decision: **AÇILMAMALI / DO NOT ENABLE** unless a future board-level teardown
+proves that exact hardware and traces exist.
+
+### Low-level picture controls
+
+The factory debug dispatcher at `VA 0x192698` / file `0x1C0698` references
+real hooks for post-offset, VIP hue, custom saturation, custom brightness,
+gamma, and overdrive. A nearby debug group also names `Enable3DLUT`, although
+that particular string has no recovered xref in the current IDA database.
+These APIs are calibration primitives used underneath supported PQ modes, not
+standalone hidden user features. Exposing them without their calibration
+schema, range rules, persistence owner, and restore path is unsafe.
+
+| Primitive | Debug string VA | Recovered dispatcher xref |
+|---|---:|---:|
+| Post offset | `0x23EF90` | `0x194634` |
+| 3D LUT | `0x23F1D0` | none recovered |
+| VIP hue | `0x23F2E0` | `0x1946A0` |
+| Custom saturation | `0x23F338` | `0x1946AC` |
+| Custom brightness | `0x23F398` | `0x1946B8` |
+| Gamma | `0x23F510` | `0x1946E8` |
+| OverDrive | `0x23F8F0` | `0x1947BC` |
+
+Decision: the implementations with xrefs are **real common-platform controls**,
+but exposing them as new OSD toggles is **AÇILMAMALI / DO NOT EXPOSE**.
 
 ## Gate-bypass policy
 

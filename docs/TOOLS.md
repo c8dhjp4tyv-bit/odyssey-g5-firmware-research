@@ -16,6 +16,30 @@ Cross-references to absolute data commonly need recognition of the
 IDA databases are not distributed because they contain proprietary firmware
 content.
 
+`tools/export_ida_inventory.py` opens a user-created IDB read-only through
+IDA 9.x IDALib and exports segment, function, string-xref, and call-edge
+metadata. A typical licensed local environment is:
+
+```bash
+IDADIR=/path/to/ida \
+PYTHONPATH=/path/to/ida/idalib/python \
+python tools/export_ida_inventory.py firmware.i64 inventory/
+```
+
+The generated public CSV catalogs contain derived metadata only, not IDB or
+firmware bytes.
+
+## Read-only package inventory
+
+`tools/inventory_firmware.py` requires only the Python standard library. It
+validates the NVTSC container, walks all records, reports hashes, entropy and
+record checksums, and does not modify the input:
+
+```bash
+python3 tools/inventory_firmware.py /path/to/firmware.img
+python3 tools/inventory_firmware.py /path/to/firmware.img --json
+```
+
 ## SPARC V8 analysis emulator
 
 The research harness is a small dependency-free interpreter, not a
@@ -47,7 +71,7 @@ publicly executable reproductions.
 
 - refuses unknown firmware hashes
 - uses explicit runtime guards that remain active under `python3 -O`
-- verifies stock offsets and invariants
+- verifies pinned base-image offsets and invariants
 - applies exactly two byte changes
 - validates the output hash and checksum
 - never searches for “similar” patterns in another image
@@ -64,8 +88,9 @@ publicly executable reproductions.
 
 ## Safety regression tests
 
-`tests/test_safety_guards.py` executes both public tools through optimized
-Python and confirms that malformed images are still rejected. GitHub Actions
-runs the tests in both normal and optimized modes. Positive-path validation
-against the proprietary stock image remains a local test because that image
+`tests/test_safety_guards.py` confirms that malformed images are rejected in
+optimized Python. `tests/test_inventory_firmware.py` covers valid records,
+sentinels, mismatches, malformed magic/tag/reserved bytes, and truncation.
+GitHub Actions runs the tests in both normal and optimized modes. Positive-path validation
+against the proprietary base image remains a local test because that image
 is intentionally not distributed.

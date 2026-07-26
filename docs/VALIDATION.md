@@ -5,20 +5,20 @@
 ```text
 Validated on:             2026-07-26
 Tested hardware:          LS32CG552EUXUF
-Safety-validation commit: 039749c55deb
+Repository state:          release branch; see current commit/tag
 ```
 
 ## Build invariants
 
-The builder refuses to run unless the stock image has:
+The builder refuses to run unless the exact pinned base image has:
 
 - exact size `3,449,760`
 - exact SHA-256
   `2e901cf2677b688d740dc62b279faedbee991c726ab5c3dcf75d156115cc96e7`
 - exact complete-file `sum16 = D43B`
 - embedded version `1010.0` at the expected offset
-- stock MGA support byte `00`
-- stock shared Factory Picture byte `00`
+- base MGA support byte `00`
+- base shared Factory Picture byte `00`
 
 ## Final-image invariants
 
@@ -52,14 +52,14 @@ A purpose-built SPARC V8 emulator exercised:
 For the final MGA category:
 
 ```text
-stock renderer:   "Not supported", 0 item-value calls
+base renderer:    "Not supported", 0 item-value calls
 patched renderer: 35 names, first "Back to upper", last "MGA On/Off"
 ```
 
 The in-memory-only MGA safety probe produced:
 
 ```text
-stock kind 2/3: no resolver and no persistent write
+base kind 2/3: no resolver and no persistent write
 forced kind 4: selector-based byte write and persistence
 forced kind 4 at 0xFF with max 0x2FE: stored 0x00
 MGA_KIND4_SAFETY=UNSAFE_CONFIRMED
@@ -83,9 +83,10 @@ python3 -m unittest discover -s tests -v
 python3 -O -m unittest discover -s tests -v
 ```
 
-The negative fixtures confirm that both tools reject malformed firmware under
-`python3 -O`. A positive optimized-mode run against the private, hash-matched
-stock image reproduced:
+The negative fixtures confirm that the mutating tools reject malformed
+firmware under `python3 -O`; the inventory fixtures validate structural
+failure handling. A positive optimized-mode run against the private, hash-matched
+base image reproduced:
 
 ```text
 output sha256=815f28e8e1eaba498c07cd500d581c63b16a887ea0da274152d1297b8d237350

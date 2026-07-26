@@ -2,7 +2,9 @@
 """Build the verified MGA-only Odyssey G5 G55C LS32CG552EUXUF image.
 
 The Samsung firmware itself is not distributed. The user must provide the
-exact stock M-C5500GGZA-1010.0[D43B].img identified by EXPECTED_SOURCE_SHA256.
+exact owner-supplied M-C5500GGZA-1010.0[D43B].img identified by
+EXPECTED_SOURCE_SHA256. It is called the base image because official Samsung
+provenance has not been independently established.
 """
 
 from __future__ import annotations
@@ -44,7 +46,7 @@ def require(condition: bool, message: str) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("stock_image", type=Path)
+    parser.add_argument("base_image", type=Path)
     parser.add_argument(
         "--output-dir",
         type=Path,
@@ -56,7 +58,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    source = args.stock_image.read_bytes()
+    source = args.base_image.read_bytes()
 
     require(len(source) == EXPECTED_SIZE, "unexpected firmware size")
     require(
@@ -73,21 +75,21 @@ def main() -> None:
     )
     require(
         source[MGA_SUPPORT_FILE] == 0,
-        "MGA support byte is not the expected stock value",
+        "MGA support byte is not the expected base value",
     )
     require(
         source[PICTURE_SHARED_FILE] == 0,
-        "shared Factory Picture byte is not the expected stock value",
+        "shared Factory Picture byte is not the expected base value",
     )
     require(
         source[KEY_DISPATCH_FILE] == 0x10,
-        "key-dispatch byte is not the expected stock value",
+        "key-dispatch byte is not the expected base value",
     )
     require(
         source[
             DATA_CHECKSUM_PLACEHOLDER : DATA_CHECKSUM_PLACEHOLDER + 4
         ] == b"\xFF\xFF\xFF\xFF",
-        "data checksum placeholder is not the expected stock value",
+        "data checksum placeholder is not the expected base value",
     )
 
     output = bytearray(source)

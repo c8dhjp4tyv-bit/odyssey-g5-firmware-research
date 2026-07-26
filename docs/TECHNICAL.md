@@ -42,10 +42,10 @@ Item descriptor size:    0x2C
 Category condition:      descriptor +0x15 = 1
 Supported byte:          descriptor +0x16
 Supported VA/file:       0x2A4A76 / 0x2D2776
-Stock/final:             00 / 01
+Base/final:              00 / 01
 ```
 
-The stock category renderer:
+The base category renderer:
 
 ```sparc
 ; sub_1D9B60
@@ -85,7 +85,7 @@ must not be inferred only from enum names.
 ```text
 Factory Picture descriptor VA:  0x2A4A78
 Shared condition VA/file:        0x2A4A8D / 0x2D278D
-Stock:                           00
+Base:                            00
 Rejected experiment:             01
 ```
 

@@ -1,13 +1,14 @@
-# Samsung Odyssey G5 G55C (LS32CG552EUXUF) firmware research
+# Samsung Odyssey G5 G55C firmware reverse engineering
 
-Reverse engineering notes and reproducible tooling for the 32-inch Samsung
+Package-wide reverse engineering notes and reproducible tooling for the 32-inch Samsung
 Odyssey G5 G55C, exact model `LS32CG552EUXUF`, running firmware
 `M-C5500GGZA-1010.0[D43B]`.
 
-The practical result is deliberately small: a one-byte data flag makes the
-existing hidden `MGA` factory-calibration page visible. No executable code,
-bootloader, EDID, calibration value, key dispatcher, or flash layout is
-changed.
+The research covers the complete ten-record package: three 8051 roles, two
+SPARC applications, boot/vector and configuration records, the main event/UI,
+PQ, source, storage and update subsystems, and bounded unknowns. The released
+modification remains deliberately small: one data flag makes the existing
+hidden `MGA` factory-calibration page visible.
 
 > [!WARNING]
 > This is owner-performed hardware research, not an official Samsung update.
@@ -32,6 +33,15 @@ builder, verifier, and their safety regression tests are currently public.
 The emulator is corroborating evidence rather than a substitute for hardware
 validation. See [docs/TOOLS.md](docs/TOOLS.md).
 
+## Base-image provenance
+
+The exact SHA-256-pinned `1010.0[D43B]` input is an owner-supplied base image,
+not an independently authenticated Samsung release. Differential analysis
+against the earlier owner-supplied `1008.3[C145]` reference found identical
+executable records; the only changes are 22 personalized EDID display names
+and checksums plus the embedded version. See
+[docs/FIRMWARE_ARCHITECTURE.md](docs/FIRMWARE_ARCHITECTURE.md).
+
 ## Confirmed findings
 
 - The main application is SPARC V8, 32-bit, big-endian.
@@ -39,7 +49,7 @@ validation. See [docs/TOOLS.md](docs/TOOLS.md).
   tested monitor.
 - `MGA / Not supported` is controlled by one category `supported` byte:
   `VA 0x2A4A76`, file offset `0x2D2776`, `00 -> 01`.
-- After that byte is enabled, the stock renderer displays 35 existing MGA
+- After that byte is enabled, the existing renderer displays 35 existing MGA
   rows.
 - The rows remain read-only because their descriptors do not have a valid
   MGA read/write path. This is a firmware limitation, not a missing
@@ -61,10 +71,10 @@ validation. See [docs/TOOLS.md](docs/TOOLS.md).
 
 ## Tested final build
 
-The final tested build was generated from the exact stock input below:
+The final tested build was generated from the exact owner-supplied base below:
 
 ```text
-Stock input
+Base input
   filename: M-C5500GGZA-1010.0[D43B].img
   size:     3,449,760 bytes
   SHA-256:  2e901cf2677b688d740dc62b279faedbee991c726ab5c3dcf75d156115cc96e7
@@ -77,17 +87,17 @@ Generated output
   sum16:    D440
 ```
 
-Only two bytes differ from stock:
+Only two bytes differ from that exact base:
 
-| File offset | Stock | Final | Purpose |
+| File offset | Base | Final | Purpose |
 |---:|---:|---:|---|
 | `0x273367` | `30` (`0`) | `34` (`4`) | Embedded version `1010.0 -> 1014.0` |
 | `0x2D2776` | `00` | `01` | MGA category `supported` |
 
-The shared Factory Picture/normal-OSD byte at `0x2D278D` remains stock `00`.
+The shared Factory Picture/normal-OSD byte at `0x2D278D` remains base value `00`.
 
 The repository intentionally does **not** contain Samsung firmware. Supply
-your own legally obtained, byte-identical stock image:
+your own legally obtained, byte-identical base image:
 
 ```bash
 python3 tools/build_mga_only.py /path/to/M-C5500GGZA-1010.0[D43B].img
@@ -102,6 +112,15 @@ Python modes.
 
 ## Documentation
 
+- [Package architecture and all ten records](docs/FIRMWARE_ARCHITECTURE.md)
+- [Processors, boot chain, and auxiliary controllers](docs/PROCESSORS_AND_BOOT.md)
+- [Main SPARC application/subsystem map](docs/MAIN_APPLICATION_MAP.md)
+- [Joystick events and hidden-menu gestures](docs/KEY_GESTURES.md)
+- [USB update pipeline and external-firmware stubs](docs/UPDATE_PIPELINE.md)
+- [Data, resources, EDID, and storage](docs/DATA_RESOURCES_AND_STORAGE.md)
+- [Separate HDMI/DP link/EQ firmware](docs/AUX_LINK_FIRMWARE.md)
+- [Coverage, confidence, and unresolved boundaries](docs/COVERAGE_AND_LIMITATIONS.md)
+- [Generated function and symbol catalogs](docs/generated/README.md)
 - [Technical map and disassembly evidence](docs/TECHNICAL.md)
 - [Revision-specific address ledger](docs/ADDRESS_LEDGER.md)
 - [Experiment timeline, failures, and resolutions](docs/INCIDENTS.md)

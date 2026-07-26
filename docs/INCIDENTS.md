@@ -45,7 +45,7 @@ visibility flag.
 
 ### Resolution
 
-Restore `0x2D278D` to stock `00`. Do not release the Factory Picture patch.
+Restore `0x2D278D` to base value `00`. Do not release the Factory Picture patch.
 
 ## Phase 3: update indicator stuck at 1%
 
@@ -113,6 +113,6 @@ like a persistent firmware regression. Hardware validation must record:
 - Firmware reports `1014.0`.
 - Normal Game and Picture OSD categories are present with an active source.
 - Holding UP opens MGA.
-- MGA displays its 35 stock rows.
+- MGA displays its 35 existing rows.
 - MGA remains read-only.
 - `MGA On/Off` displays `Off`.

@@ -1,8 +1,10 @@
-# Samsung Odyssey G5 G55C (LS32CG552EUXUF) firmware araştırması
+# Samsung Odyssey G5 G55C firmware tersine mühendisliği
 
 Bu depo, sahibine ait 32 inç Samsung Odyssey G5 G55C, tam model kodu
 `LS32CG552EUXUF`, üzerinde yürütülen firmware tersine mühendislik çalışmasının
-tekrarlanabilir araçlarını ve teknik bulgularını içerir. İncelenen temel sürüm
+tekrarlanabilir araçlarını ve teknik bulgularını içerir. On kayıtlı paketin
+8051 ve SPARC bileşenleri, ana olay/OSD/PQ/kayıt/güncelleme alt sistemleri ve
+kanıtla sınırlandırılan bilinmeyenleri incelenmiştir. Tam analiz girdisi
 `M-C5500GGZA-1010.0[D43B]`'dir.
 
 Ulaşılan güvenli sonuç küçüktür: firmware'de zaten bulunan gizli `MGA`
@@ -29,6 +31,15 @@ ve gözlenen çıktılarla belgelenmiştir; ancak şu anda yalnız deterministik
 builder'ı, verifier ve güvenlik regresyon testleri kamuya açıktır. Emülatör
 donanım doğrulamasının yerine geçmez, onu destekleyen kanıttır. Ayrıntılar:
 [docs/TOOLS.md](docs/TOOLS.md).
+
+## Temel imajın kaynağı
+
+SHA-256 ile sabitlenen `1010.0[D43B]`, resmi Samsung yayını olduğu bağımsız
+olarak doğrulanmış bir stok imaj değil, kullanıcıya ait temel imajdır.
+`1008.3[C145]` referansıyla karşılaştırıldığında tüm executable kayıtlar
+birebir aynıdır; farklar 22 kişiselleştirilmiş EDID ekran adı/checksum'ı ve
+gömülü sürümden ibarettir. Ayrıntı:
+[docs/FIRMWARE_ARCHITECTURE.md](docs/FIRMWARE_ARCHITECTURE.md).
 
 ## Kesinleşen sonuçlar
 
@@ -58,7 +69,7 @@ donanım doğrulamasının yerine geçmez, onu destekleyen kanıttır. Ayrıntı
 ## Son test edilen üretim
 
 ```text
-Stok girdi
+Temel girdi
   dosya:    M-C5500GGZA-1010.0[D43B].img
   boyut:    3.449.760 bayt
   SHA-256:  2e901cf2677b688d740dc62b279faedbee991c726ab5c3dcf75d156115cc96e7
@@ -71,23 +82,23 @@ Stok girdi
   sum16:    D440
 ```
 
-Stoktan yalnız iki bayt farklıdır:
+Bu temel imajdan yalnız iki bayt farklıdır:
 
-| Dosya offset | Stok | Son | Anlam |
+| Dosya offset | Temel | Son | Anlam |
 |---:|---:|---:|---|
 | `0x273367` | `30` (`0`) | `34` (`4`) | Gömülü sürüm `1010.0 -> 1014.0` |
 | `0x2D2776` | `00` | `01` | MGA kategorisi `supported` |
 
-Normal OSD'yi etkileyen ortak Picture alanı `0x2D278D`, stok `00` değerinde
+Normal OSD'yi etkileyen ortak Picture alanı `0x2D278D`, temel `00` değerinde
 kalır.
 
 Samsung firmware'i bu depoda dağıtılmaz. Kullanıcı kendi yasal ve SHA-256
-değeri birebir eşleşen stok imajını sağlamalıdır:
+değeri birebir eşleşen temel imajını sağlamalıdır:
 
 ```bash
-python3 tools/build_mga_only.py /stok/M-C5500GGZA-1010.0[D43B].img
+python3 tools/build_mga_only.py /temel/M-C5500GGZA-1010.0[D43B].img
 python3 tools/verify_mga_only.py \
-  /stok/M-C5500GGZA-1010.0[D43B].img \
+  /temel/M-C5500GGZA-1010.0[D43B].img \
   output/M-C5500GGZA-1014.0[D440].img
 ```
 
@@ -97,6 +108,15 @@ modunu test eder.
 
 ## Belgeler
 
+- [Paket mimarisi ve on kaydın tamamı](docs/FIRMWARE_ARCHITECTURE.md)
+- [İşlemciler, boot zinciri ve yardımcı denetleyiciler](docs/PROCESSORS_AND_BOOT.md)
+- [Ana SPARC uygulama/alt-sistem haritası](docs/MAIN_APPLICATION_MAP.md)
+- [Joystick olayları ve gizli menü hareketleri](docs/KEY_GESTURES.md)
+- [USB güncelleme zinciri ve dış-firmware stub'ları](docs/UPDATE_PIPELINE.md)
+- [Veri, kaynaklar, EDID ve kalıcı kayıt](docs/DATA_RESOURCES_AND_STORAGE.md)
+- [Ayrı HDMI/DP link ve EQ firmware'i](docs/AUX_LINK_FIRMWARE.md)
+- [Kapsam, güven ve çözülemeyen sınırlar](docs/COVERAGE_AND_LIMITATIONS.md)
+- [Üretilmiş fonksiyon ve sembol katalogları](docs/generated/README.md)
 - [Teknik harita ve disassembly kanıtları](docs/TECHNICAL.md)
 - [Sürüme özel adres cetveli](docs/ADDRESS_LEDGER.md)
 - [Deney günlüğü, sorunlar ve çözümleri](docs/INCIDENTS.md)

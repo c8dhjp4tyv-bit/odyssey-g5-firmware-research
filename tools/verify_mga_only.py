@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify a generated MGA-only image against the exact stock firmware."""
+"""Verify a generated MGA-only image against the exact pinned base image."""
 
 from __future__ import annotations
 
@@ -26,19 +26,19 @@ from build_mga_only import (
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("stock_image", type=Path)
+    parser.add_argument("base_image", type=Path)
     parser.add_argument("generated_image", type=Path)
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
-    source = args.stock_image.read_bytes()
+    source = args.base_image.read_bytes()
     generated = args.generated_image.read_bytes()
 
     require(
         len(source) == EXPECTED_SIZE,
-        "unexpected stock firmware size",
+        "unexpected base firmware size",
     )
     require(
         len(generated) == EXPECTED_SIZE,
@@ -46,11 +46,11 @@ def main() -> None:
     )
     require(
         sha256(source).hexdigest() == EXPECTED_SOURCE_SHA256,
-        "stock firmware SHA-256 mismatch",
+        "base firmware SHA-256 mismatch",
     )
     require(
         sum16(source) == EXPECTED_SOURCE_SUM16,
-        "stock firmware complete-file sum16 mismatch",
+        "base firmware complete-file sum16 mismatch",
     )
     require(
         sha256(generated).hexdigest() == EXPECTED_OUTPUT_SHA256,
@@ -101,7 +101,7 @@ def main() -> None:
     print(f"sha256={sha256(generated).hexdigest()}")
     print(f"sum16=0x{sum16(generated):04X}")
     print("exact_two_byte_diff=PASS")
-    print("picture_shared_condition_stock=PASS")
+    print("picture_shared_condition_base=PASS")
     print("key_dispatch_unchanged=PASS")
 
 

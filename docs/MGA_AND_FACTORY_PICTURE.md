@@ -5,7 +5,7 @@
 MGA appears to be a multi-point panel RGB/gamma factory-calibration structure,
 not a user picture-feature bundle.
 
-The stock table contains:
+The base table contains:
 
 - `R/G/B-Gain1` through `R/G/B-Gain10`
 - `Red Gain`, `Green Gain`, `Blue Gain`

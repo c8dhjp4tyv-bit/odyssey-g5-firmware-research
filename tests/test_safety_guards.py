@@ -44,15 +44,15 @@ class OptimizedModeSafetyTests(unittest.TestCase):
     def test_verifier_rejects_wrong_images_under_optimized_python(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             directory = Path(temporary)
-            stock = directory / "stock.img"
+            base = directory / "base.img"
             generated = directory / "generated.img"
-            stock.write_bytes(b"not firmware")
+            base.write_bytes(b"not firmware")
             generated.write_bytes(b"not firmware either")
 
-            result = self.run_tool(str(VERIFY), str(stock), str(generated))
+            result = self.run_tool(str(VERIFY), str(base), str(generated))
 
             self.assertNotEqual(result.returncode, 0)
-            self.assertIn("ERROR: unexpected stock firmware size", result.stderr)
+            self.assertIn("ERROR: unexpected base firmware size", result.stderr)
 
 
 if __name__ == "__main__":

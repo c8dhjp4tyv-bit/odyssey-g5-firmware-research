@@ -142,10 +142,10 @@ The editor was run with a sentinel byte returned by `sub_1B3FB0`. The
 descriptor change existed only in mapped emulator RAM:
 
 ```text
-item=01 kind=2 stock       target=10->10 resolver=[]      persist=False
+item=01 kind=2 base        target=10->10 resolver=[]      persist=False
 item=01 kind=2 forced->4   target=10->11 resolver=[2,2,2] persist=True
 item=01 kind=2 forced->4   target=FF->00 resolver=[2,2,2] persist=True
-item=31 kind=3 stock       target=10->10 resolver=[]      persist=False
+item=31 kind=3 base        target=10->10 resolver=[]      persist=False
 item=31 kind=3 forced->4   target=10->11 resolver=[3,3,3] persist=True
 item=34 kind=2 forced->4   target=00->01 resolver=[0,0,0] persist=True
 MGA_KIND4_SAFETY=UNSAFE_CONFIRMED
