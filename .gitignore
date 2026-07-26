@@ -1,0 +1,30 @@
+# Proprietary firmware and generated images
+*.img
+*.bin
+*.rom
+*.dump
+
+# IDA databases and generated analysis files
+*.id0
+*.id1
+*.id2
+*.nam
+*.til
+*.i64
+*.idb
+*.asm
+*.elf
+
+# Local evidence and temporary output
+evidence/private/
+output/
+outputs/
+work/
+__pycache__/
+*.pyc
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
