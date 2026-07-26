@@ -12,11 +12,17 @@ LOAD data  0x001F0000..0x002EB9C0  RW  0xFB9C0 bytes
 The database contains 3,074 functions, 8,677 direct call-graph edges, and
 16,762 strings. Because the image is stripped and makes indirect calls,
 function boundaries and direct edge counts are an analysis lower bound.
+The independent structural layer expands navigation to 3,602 candidate entry
+points and demonstrates merged IDA containers; see
+[DEEP_CONTROL_FLOW.md](DEEP_CONTROL_FLOW.md).
 
 The complete generated navigation tables are:
 
 - [main_functions.csv](generated/main_functions.csv)
 - [main_symbol_anchors.csv](generated/main_symbol_anchors.csv)
+- [main_recovered_function_candidates.csv](generated/main_recovered_function_candidates.csv)
+- [main_indirect_control_flow.csv](generated/main_indirect_control_flow.csv)
+- [main_callback_bindings.csv](generated/main_callback_bindings.csv)
 
 ## Application architecture
 

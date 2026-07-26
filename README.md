@@ -26,12 +26,14 @@ design; this project does not make them editable.*
 
 ## Public reproducibility boundary
 
-The firmware-independent SPARC research harness is not included in this
+The firmware-independent SPARC execution emulator is not included in this
 release yet. Emulator-derived results are documented with addresses, raw
-instructions, inputs, and observed outputs, but only the deterministic image
-builder, verifier, and their safety regression tests are currently public.
-The emulator is corroborating evidence rather than a substitute for hardware
-validation. See [docs/TOOLS.md](docs/TOOLS.md).
+instructions, inputs, and observed outputs. The public repository does include
+the deterministic builder/verifier, package and companion-record parsers,
+independent SPARC/8051 structural scanners, symbol-inference tooling, generated
+metadata catalogs, and their regression tests. The emulator is corroborating
+evidence rather than a substitute for hardware validation. See
+[docs/TOOLS.md](docs/TOOLS.md).
 
 ## Base-image provenance
 
@@ -115,6 +117,7 @@ Python modes.
 - [Package architecture and all ten records](docs/FIRMWARE_ARCHITECTURE.md)
 - [Processors, boot chain, and auxiliary controllers](docs/PROCESSORS_AND_BOOT.md)
 - [Main SPARC application/subsystem map](docs/MAIN_APPLICATION_MAP.md)
+- [Deep SPARC/8051 control-flow recovery](docs/DEEP_CONTROL_FLOW.md)
 - [Joystick events and hidden-menu gestures](docs/KEY_GESTURES.md)
 - [USB update pipeline and external-firmware stubs](docs/UPDATE_PIPELINE.md)
 - [Data, resources, EDID, and storage](docs/DATA_RESOURCES_AND_STORAGE.md)

@@ -1,0 +1,412 @@
+function_address,ida_name,candidate,evidence_count,evidence_addresses,candidates_for_function,confidence
+0x00116498,sub_116498,Sec_ConfigDispSize,4,0x001F79D0,1,single-candidate
+0x001179C8,sub_1179C8,SecHalBoard_SetBacklight,4,0x001F7AB0,1,single-candidate
+0x00117A64,sub_117A64,SecHalBoard_SetPanelPower,4,0x001F7AD0,1,single-candidate
+0x00117C0C,sub_117C0C,SecHalBoard_SetBacklight,2,0x001F7AB0,1,single-candidate
+0x00117D64,sub_117D64,SecHalBoard_SetBackLightOn,2,0x001F7AF0,2,ranked-ambiguous
+0x00117D64,sub_117D64,SecHalBoard_SetBacklight,2,0x001F7AB0,2,ranked-ambiguous
+0x00117DE4,sub_117DE4,SecHalBoard_SetBackLightOff,2,0x001F7B10,2,ranked-ambiguous
+0x00117DE4,sub_117DE4,SecHalBoard_SetBacklight,2,0x001F7AB0,2,ranked-ambiguous
+0x001180E8,sub_1180E8,SecHalBoard_TurnOnOffUsbPortPwr,2,0x001F7C08,1,single-candidate
+0x00118148,sub_118148,SecHalBoard_TurnOnOffUsbAPwr,2,0x001F7C28,1,single-candidate
+0x0011D580,sub_11D580,SecAppOsd_PrintQRcode,2,0x001F7D78,1,single-candidate
+0x0011D8C4,sub_11D8C4,SecHalScaler_ConfigScalerAfterWindowMute,2,0x001F7DA8,1,single-candidate
+0x0011E2A8,sub_11E2A8,SecHalScaler_UpdateOutputHTTInfo_CallBack,2,0x001F7E00,1,single-candidate
+0x0011E320,sub_11E320,SecHalScaler_UpdateOutputVTTInfo_CallBack,2,0x001F7E30,1,single-candidate
+0x0011E3A4,sub_11E3A4,SecHalScaler_UpdateOutputHFreqInfo_CallBack,2,0x001F7E60,1,single-candidate
+0x0011E428,sub_11E428,SecHalScaler_UpdateOutputVFreqInfo_CallBack,2,0x001F7E90,1,single-candidate
+0x0011E4AC,sub_11E4AC,SecHalScaler_UpdateOutputDCLKInfo_CallBack,2,0x001F7EC0,1,single-candidate
+0x0011E530,sub_11E530,SecHalScaler_UpdateOutputSyncLockInfo_CallBack,2,0x001F7EF0,1,single-candidate
+0x0011EB44,sub_11EB44,__getVendorPortNameFromEdidPortName,2,0x001F8318,1,single-candidate
+0x0011EBCC,sub_11EBCC,SecHalScaler_ToggleHPD,2,0x001F8340,1,single-candidate
+0x0011ED60,sub_11ED60,SecHalScaler_IsEdidPortValid,2,0x001F8358,1,single-candidate
+0x0011EDFC,sub_11EDFC,__getVendorPortNameFromEdidPortName,1,0x001F8318,1,single-candidate
+0x0011EF80,sub_11EF80,__getVendorPortNameFromEdidPortName,1,0x001F8318,1,single-candidate
+0x0011F06C,sub_11F06C,__getVendorPortNameFromEdidPortName,1,0x001F8318,1,single-candidate
+0x0011F1A4,sub_11F1A4,SecHalScaler_ReadEdidData,2,0x001F8378,3,ranked-ambiguous
+0x0011F1A4,sub_11F1A4,__getEdidAddr,2,0x001F8460,3,ranked-ambiguous
+0x0011F1A4,sub_11F1A4,__getVendorPortNameFromEdidPortName,1,0x001F8318,3,ranked-ambiguous
+0x0011F43C,sub_11F43C,__getVendorPortNameFromEdidPortName,4,0x001F8318,3,ranked-ambiguous
+0x0011F43C,sub_11F43C,SecHalScaler_WriteEdidData,3,0x001F8398,3,ranked-ambiguous
+0x0011F43C,sub_11F43C,__getEdidAddr,2,0x001F8460,3,ranked-ambiguous
+0x00120BC0,sub_120BC0,SecHalScaler_SetSaturation,2,0x001F8538,1,single-candidate
+0x00121328,sub_121328,SecHalScaler_SetSharpness,4,0x001F8558,1,single-candidate
+0x001218A8,sub_1218A8,SecHalScaler_SetPreRevGamma,12,0x001F8578,1,single-candidate
+0x001229F8,sub_1229F8,SecHalScaler_GetVendorSrcIndexBySecSrcName,3,0x001F87F8,2,ranked-ambiguous
+0x001229F8,sub_1229F8,SecHalScaler_SetInputSource,2,0x001F8828,2,ranked-ambiguous
+0x00122B74,sub_122B74,SecHalScaler_UpdateInputWidthInfo_CallBack,4,0x001F8848,1,single-candidate
+0x00122C60,sub_122C60,SecHalScaler_UpdateInputHeightInfo_CallBack,2,0x001F8878,1,single-candidate
+0x00122CE8,sub_122CE8,SecHalScaler_UpdateInputHfreqInfo_CallBack,2,0x001F88A8,1,single-candidate
+0x00122D70,sub_122D70,SecHalScaler_UpdateInputVfreqInfo_CallBack,2,0x001F88D8,1,single-candidate
+0x00122DF8,sub_122DF8,SecHalScaler_UpdateInputInterlaceInfo_CallBack,2,0x001F8908,1,single-candidate
+0x00122E80,sub_122E80,SecHalScaler_UpdateInputVRRInfo_CallBack,2,0x001F8938,1,single-candidate
+0x00122F08,sub_122F08,SecHalScaler_GetVendorSrcIndexBySecSrcName,3,0x001F87F8,1,single-candidate
+0x00123010,sub_123010,SecHalScaler_GetVendorSrcIndexBySecSrcName,3,0x001F87F8,1,single-candidate
+0x0012319C,sub_12319C,SecHalScaler_GetVendorSrcIndexBySecSrcName,3,0x001F87F8,1,single-candidate
+0x0012336C,sub_12336C,SecHalScaler_GetSourceNameByDPMSCablePlugInfo,4,0x001F8968,1,single-candidate
+0x0012345C,sub_12345C,SecHalScaler_GetVendorSrcIndexBySecSrcName,3,0x001F87F8,1,single-candidate
+0x00123620,sub_123620,SecHalScaler_UpdateSyncState_CallBack,6,0x001F8998,1,single-candidate
+0x00123AC4,sub_123AC4,SecHalScaler_GetVendorSrcIndexBySecSrcName,3,0x001F87F8,1,single-candidate
+0x00124184,sub_124184,SecHalScaler_IsWakeupByCableDisconnection,2,0x001F8E70,1,single-candidate
+0x001241E8,sub_1241E8,SecHalScaler_IsWakeupByJogPowerKey,2,0x001F8EA0,1,single-candidate
+0x0012424C,sub_12424C,SecHalScaler_IsWakeupByJogLeftRightKey,2,0x001F8EC8,1,single-candidate
+0x001242B0,sub_1242B0,SecHalScaler_IsWakeupByOtherSourceCableConnection,2,0x001F8EF0,1,single-candidate
+0x00124804,sub_124804,SecHalScaler_SetUsbSwitch,2,0x001F8F28,1,single-candidate
+0x00124A20,sub_124A20,SecHalUserData_SaveDiffToEEPROM,2,0x001F90C8,1,single-candidate
+0x00124F34,sub_124F34,SecHalUserData_SavePictureDataBlock,5,0x001F90E8,1,single-candidate
+0x00129D64,sub_129D64,DRV_LDC_SetPanelResolution,1,0x001F9F60,1,single-candidate
+0x00129E54,sub_129E54,DRV_LDC_UpdateSegmentBoundary,2,0x001F9F88,1,single-candidate
+0x0012A074,sub_12A074,DRV_LDC_SetLDCSegment,2,0x001F9FA8,1,single-candidate
+0x0012A734,sub_12A734,DRV_LDC_Intensity_Gain_Update,2,0x001F9FC0,1,single-candidate
+0x0013B0B8,sub_13B0B8,FRC_AutoFrameDown,1,0x001FE730,1,single-candidate
+0x0013C138,sub_13C138,FRC_SetMainBypassMode,2,0x001FE750,1,single-candidate
+0x0014CC9C,sub_14CC9C,USBCop_CheckVersion,1,0x00200A90,1,single-candidate
+0x0014D004,sub_14D004,USBCop_ConfirmInit,2,0x00200AB8,1,single-candidate
+0x0014D3A0,sub_14D3A0,USBCop_GetFWVer,2,0x00200B20,1,single-candidate
+0x0014E800,sub_14E800,USBCop_ConfirmInit_Factory,2,0x00200DA0,1,single-candidate
+0x00164368,sub_164368,SecWindowType,1,0x00202EA8,1,single-candidate
+0x0016CA98,sub_16CA98,SYSAPI_PanelOnOffControl,1,0x002049F0,1,single-candidate
+0x0016CB50,sub_16CB50,SYSAPI_PowerSaving,1,0x00204A18,1,single-candidate
+0x00170E78,sub_170E78,SYSAPI_ConfigSystemPostFRCLockMode,4,0x00204980,1,single-candidate
+0x00170F30,sub_170F30,SYSAPI_ConfigSystemPostFRCMainBypass,2,0x002049A8,1,single-candidate
+0x001720B8,sub_1720B8,SYSAPI_EraseUSRFlashType2,2,0x00204BC8,1,single-candidate
+0x001791E0,sub_1791E0,__APPTasksAfterDisplay,2,0x002065F8,1,single-candidate
+0x001798C8,sub_1798C8,SecApp_APPActionDispatcher,10,0x00206610,8,ranked-ambiguous
+0x001798C8,sub_1798C8,__APPTasksAfterMute,7,0x00206630,8,ranked-ambiguous
+0x001798C8,sub_1798C8,__APPTasksBeforeDisplay_Main,6,0x00206680,8,ranked-ambiguous
+0x001798C8,sub_1798C8,__APPTasksAfterDisplay_Common,4,0x002066E0,8,ranked-ambiguous
+0x001798C8,sub_1798C8,__APPTasksBeforeDisplay_P1,4,0x002066A0,8,ranked-ambiguous
+0x001798C8,sub_1798C8,__APPTasksAfterMute_All,2,0x00206668,8,ranked-ambiguous
+0x001798C8,sub_1798C8,__APPTasksAfterMute_Common,2,0x00206648,8,ranked-ambiguous
+0x001798C8,sub_1798C8,__APPTasksBeforeDisplay_Last,2,0x002066C0,8,ranked-ambiguous
+0x0017AA7C,sub_17AA7C,__PrintAppEventString,8,0x00207690,1,single-candidate
+0x0017B778,sub_17B778,__DpmsHandler,8,0x002076A8,1,single-candidate
+0x0017BFEC,sub_17BFEC,SecApp,2,0x00207478,1,single-candidate
+0x0017C4A4,sub_17C4A4,SecApp_KeyActionDemander,2,0x002076E8,1,single-candidate
+0x0017DA58,sub_17DA58,SecApp_SetOsdTimeOut,8,0x002077C0 0x00207D80,1,single-candidate
+0x0017DB48,sub_17DB48,SecApp_SetOsdTimeOut,8,0x002077C0 0x00207D80,1,single-candidate
+0x0017DE2C,sub_17DE2C,__osdEnterNoSync,2,0x002077D8,1,single-candidate
+0x0017EC80,sub_17EC80,SecApp_SetOsdTimeOut,10,0x002077C0 0x00207D80,2,ranked-ambiguous
+0x0017EC80,sub_17EC80,__processKeyEvent,1,0x002077F0,2,ranked-ambiguous
+0x0017F078,sub_17F078,__processOsdEvent,2,0x00207808,1,single-candidate
+0x0017F130,sub_17F130,__processAppEvent,1,0x00207820,1,single-candidate
+0x0017F4E8,sub_17F4E8,__processOsdEvent,2,0x00207808,1,single-candidate
+0x0017FAA8,sub_17FAA8,__osdEnterNoSync,2,0x002077D8,1,single-candidate
+0x0017FE5C,sub_17FE5C,SecConfEdid_GetNativeTimingInfo,1,0x00209600,1,single-candidate
+0x00180A80,sub_180A80,SecConfModel_IsLowInputLagModeWorkable,2,0x002387E0,1,single-candidate
+0x00181D1C,sub_181D1C,__updatePanelType,4,0x00239A08,1,single-candidate
+0x00181DCC,sub_181DCC,__updatePanelType,4,0x00239A08,1,single-candidate
+0x00182264,sub_182264,SecConfPanel_PrintPanelInformation,2,0x00239A20,1,single-candidate
+0x00182458,sub_182458,__setBLMode,2,0x0023ABC8,1,single-candidate
+0x001824C4,sub_1824C4,__setUserConfig,2,0x0023ABD8,1,single-candidate
+0x0018252C,sub_18252C,__setShortThreshold,4,0x0023ABE8 0x0023AC90,1,single-candidate
+0x00182604,sub_182604,__setShortThreshold,4,0x0023ABE8 0x0023AC90,4,ranked-ambiguous
+0x00182604,sub_182604,SecDrvLed_InitDriver,2,0x0023AC00,4,ranked-ambiguous
+0x00182604,sub_182604,__setBLMode,2,0x0023ABC8,4,ranked-ambiguous
+0x00182604,sub_182604,__setUserConfig,2,0x0023ABD8,4,ranked-ambiguous
+0x00182EF0,sub_182EF0,SecLibCommon_IsMainSourceOptimumTiming,1,0x0023AFC0,1,single-candidate
+0x001834BC,sub_1834BC,SecLibCommon_IsHdmiBLevelAvailable,7,0x0023AFE8,5,ranked-ambiguous
+0x001834BC,sub_1834BC,SecHalScaler_CheckHDMIMode,2,0x0023AE20,5,ranked-ambiguous
+0x001834BC,sub_1834BC,SecLibCommon_IsCurrentSourceHDMI,2,0x0023ADD0,5,ranked-ambiguous
+0x001834BC,sub_1834BC,SecLibCommon_IsVideoTiming,2,0x0023AE68,5,ranked-ambiguous
+0x001834BC,sub_1834BC,SecLibPicture_GetInputColorSpace,2,0x0023AEB0,5,ranked-ambiguous
+0x00183BFC,sub_183BFC,SecLibCommon_IsLowInputLagModeWorkable,4,0x0023B010,1,single-candidate
+0x00185BAC,sub_185BAC,__setVcpOffTimer,2,0x0023B588,1,single-candidate
+0x001869BC,sub_1869BC,SecLibCommon_DddCmdSetVcp,2,0x0023B5A0,1,single-candidate
+0x00186F4C,sub_186F4C,SecLibCommon_DddCmdAdjustOSDFunction,1,0x0023B5C0,1,single-candidate
+0x001882AC,sub_1882AC,SecLibCommon_DdcCmdGetVcp,4,0x0023B5E8,1,single-candidate
+0x0018A710,sub_18A710,SecLibCommon_LedOn,7,0x0023B870,1,single-candidate
+0x0018A830,sub_18A830,SecLibCommon_LedOff,6,0x0023B888,1,single-candidate
+0x0018B36C,sub_18B36C,SecLibCommon_GetInputTimingInfo,2,0x0023B9B8,1,single-candidate
+0x0018B494,sub_18B494,SecLibCommon_GetOutputTimingInfo,2,0x0023B9D8,1,single-candidate
+0x0018B9F4,sub_18B9F4,SecLibCommon_GetRomChecksum,2,0x0023BA00,1,single-candidate
+0x0018BA48,sub_18BA48,SecLibCommon_CheckAppDataOverWriteHDCP22Key,2,0x0023BA20,1,single-candidate
+0x0018BDE8,sub_18BDE8,SecLibCommon_PanelOnOffControl,2,0x0023BA50,1,single-candidate
+0x0018BE40,sub_18BE40,SecLibCommon_PanelOnOffControl,2,0x0023BA50,2,ranked-ambiguous
+0x0018BE40,sub_18BE40,SecLibCommon_PowerOnPanelForOSDDisplay,2,0x0023BA70,2,ranked-ambiguous
+0x0018BFC0,sub_18BFC0,SecLibCommon_ResetDriver,2,0x0023BA98,1,single-candidate
+0x0018C2B0,sub_18C2B0,SecLibCommon_LibInitFromBootFlowStateCheckHandler,19,0x0023BAB8,1,single-candidate
+0x0018CF9C,sub_18CF9C,SecLibCommon_UpdateHandler,2,0x0023BFA0,1,single-candidate
+0x0018D1E8,sub_18D1E8,__edidWriteDebug,3,0x0023BFE0,1,single-candidate
+0x0018D45C,sub_18D45C,__DownloadtoNvram,6,0x0023BFF8 0x0023C190,1,single-candidate
+0x0018D650,sub_18D650,SecLIbCommon_DownloadEdid,1,0x0023C1C8,1,single-candidate
+0x0018D800,sub_18D800,__edidWriteDebug,2,0x0023BFE0,3,ranked-ambiguous
+0x0018D800,sub_18D800,__getEdidData,2,0x0023C1F0,3,ranked-ambiguous
+0x0018D800,sub_18D800,SecLibCommon_GetEdidData,1,0x0023C010,3,ranked-ambiguous
+0x0018DC30,sub_18DC30,SecLibCommon_DownloadOdAudio,1,0x0023C030,1,single-candidate
+0x0018DF50,sub_18DF50,__UsbDataCompare,1,0x0023C050,1,single-candidate
+0x0018DFFC,sub_18DFFC,__UsbDataCompare,4,0x0023C050,2,ranked-ambiguous
+0x0018DFFC,sub_18DFFC,__usbDatacheckTag,4,0x0023C068,2,ranked-ambiguous
+0x0018E274,sub_18E274,SecLibCommon_UsbDataDown,1,0x0023C088,1,single-candidate
+0x0018E4E4,sub_18E4E4,SecLibCommon_SaveUserParameter,3,0x0023C388 0x0023C3D0,1,single-candidate
+0x0018E870,sub_18E870,SecLibCommon_MakeFactoryCondition,2,0x0023C3A8,1,single-candidate
+0x0018EFB4,sub_18EFB4,SecLibDebug_OSDStatePrinter,2,0x0023C4B8,1,single-candidate
+0x00191A50,sub_191A50,SecAPP,2,0x0023CE60,3,ranked-ambiguous
+0x00191A50,sub_191A50,SecHal,2,0x0023CE48,3,ranked-ambiguous
+0x00191A50,sub_191A50,SecLib,1,0x0023CE30,3,ranked-ambiguous
+0x00192D10,sub_192D10,SecLib,2,0x0023D770,1,single-candidate
+0x00193114,sub_193114,SecLib,16,0x0023D870 0x0023D9F0 0x0023DAA8 0x0023DD78 0x0023DF80 0x0023E140 0x0023E428,12,ranked-ambiguous
+0x00193114,sub_193114,SecHalScaler_SetFakeDPMS,2,0x0023D9C0,12,ranked-ambiguous
+0x00193114,sub_193114,SecLibCommon_LoadUserDataDefault,2,0x0023DCC8,12,ranked-ambiguous
+0x00193114,sub_193114,SecLibPicture_AdjustContrast,2,0x0023E1B8,12,ranked-ambiguous
+0x00193114,sub_193114,SecLibPicture_AdjustRedGreenBlue,2,0x0023E188,12,ranked-ambiguous
+0x00193114,sub_193114,SecLibPicture_AdjustSharpness,2,0x0023E280,12,ranked-ambiguous
+0x00193114,sub_193114,SecLibPicture_DimmingControl,2,0x0023E390,12,ranked-ambiguous
+0x00193114,sub_193114,SecLibPicture_SetCommonPictureParameter,2,0x0023E210,12,ranked-ambiguous
+0x00193114,sub_193114,SecLibPicture_UpdateColorParameter,2,0x0023E1E0,12,ranked-ambiguous
+0x00193114,sub_193114,SecLibPower_SetPowerState,2,0x0023D970,12,ranked-ambiguous
+0x00193114,sub_193114,SecLibUserData_InitFactoryData,2,0x0023DC98,12,ranked-ambiguous
+0x00193114,sub_193114,SecLibPicture_DriveMagicBright,1,0x0023E240,12,ranked-ambiguous
+0x00193AA8,sub_193AA8,SecLib,4,0x0023E5F0 0x0023E658,1,single-candidate
+0x00193D80,sub_193D80,SecLib,4,0x0023E808 0x0023E918,2,ranked-ambiguous
+0x00193D80,sub_193D80,__debugMenuSecLibTconHandler,2,0x0023EAD0,2,ranked-ambiguous
+0x0019405C,sub_19405C,SecHal,2,0x0023EAF0,1,single-candidate
+0x00194404,sub_194404,SecHal,2,0x0023EBB8,1,single-candidate
+0x00194838,sub_194838,SecHalScaler_IsWindowEnabled,4,0x0023FC80 0x00240208,13,ranked-ambiguous
+0x00194838,sub_194838,SecHalScaler_SetOverDriveBlockTestPattern,4,0x0023FE68 0x0023FEB8,13,ranked-ambiguous
+0x00194838,sub_194838,SecHalScaler_SetVideoMuteAllWindow,4,0x0023FDF8 0x0023FE30,13,ranked-ambiguous
+0x00194838,sub_194838,SecHalScaler_IsVideoMute,3,0x0023FDC0 0x00240068,13,ranked-ambiguous
+0x00194838,sub_194838,SecHalScaler_SetVideoMute,3,0x0023FCF0 0x0023FD80,13,ranked-ambiguous
+0x00194838,sub_194838,SecHal,2,0x0023FB30,13,ranked-ambiguous
+0x00194838,sub_194838,SecHalScaler_ConfigScalerAfterWindowDisplay,2,0x0023FC40,13,ranked-ambiguous
+0x00194838,sub_194838,SecHalScaler_ConfigScalerAfterWindowMute_All,2,0x0023FBB8,13,ranked-ambiguous
+0x00194838,sub_194838,SecHalScaler_ConfigScalerBeforeDisplay,2,0x0023FBF8,13,ranked-ambiguous
+0x00194838,sub_194838,SecHalScaler_ConfigureWindow,2,0x0023FB88,13,ranked-ambiguous
+0x00194838,sub_194838,SecHalScaler_GetScalerMaxWindowNumber,2,0x002401D8,13,ranked-ambiguous
+0x00194838,sub_194838,SecHalScaler_ReProcessScreenCaptureConfig,2,0x0023FF08,13,ranked-ambiguous
+0x00194838,sub_194838,SecHalScaler_WaitDisplayVSync,2,0x0023FCC0,13,ranked-ambiguous
+0x00194D40,sub_194D40,SecHal,2,0x00240230,3,ranked-ambiguous
+0x00194D40,sub_194D40,SecHalScaler_GetCaptureHStartPosition,2,0x00240298,3,ranked-ambiguous
+0x00194D40,sub_194D40,SecHalScaler_GetCaptureVStartPosition,2,0x002402E0,3,ranked-ambiguous
+0x00195724,sub_195724,SecHalScaler_ReadEdidData,9,0x00241410 0x00241460 0x002414B0 0x00241500 0x00241550,5,ranked-ambiguous
+0x00195724,sub_195724,SecHalScaler_IsEdidPortValid,8,0x00241180 0x002411C0 0x00241200 0x00241240,5,ranked-ambiguous
+0x00195724,sub_195724,SecHalScaler_WriteEdidData,8,0x00241280 0x002412D0 0x00241370 0x002413C0,5,ranked-ambiguous
+0x00195724,sub_195724,SecHalScaler_ToggleHPD,3,0x00241110 0x00241148,5,ranked-ambiguous
+0x00195724,sub_195724,SecHal,2,0x002410F0,5,ranked-ambiguous
+0x00195A84,sub_195A84,SecHal,2,0x00241660,1,single-candidate
+0x00195C20,sub_195C20,SecHalBoard_DisableEDIDWriteProtect,9,0x00241C40 0x00241C88 0x00241D08 0x00241D50 0x00241D98,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_EnableEDIDWriteProtect,8,0x00241B20 0x00241B68 0x00241BB0 0x00241BF8,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_SetHdmiEdidSelfUpdateMode,8,0x00241898 0x002418E0 0x00241928 0x00241970,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_UsbSwitch,6,0x00241DE0 0x00241E20 0x00241E60,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_GetPanelInterface1,4,0x00241EA0 0x00242200,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_GetPanelResolution1,4,0x00241ED8 0x002421A8,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_GetPanelVendorInfo1,4,0x00241F48 0x00242148,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_GetPanelVendorInfo2,4,0x00241F80 0x00242118,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_GetServiceUsbPortIndex,4,0x00241FF0 0x002420B8,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_IsBacklightOn,4,0x00241708 0x00242060,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_IsTypeCPowerOn,4,0x00241A90 0x00242228,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_SetBacklight,4,0x00241738 0x00241760,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_SetPanelPower,4,0x00241788 0x002417B0,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_SetServiceUsbPortIndex,4,0x00242028 0x00242088,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_GetInputButtonCode,3,0x002419B8 0x00242270,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_GetPanelResolution2,3,0x00241F10 0x00242178,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_IsHeadPhoneDetected,3,0x00241FB8 0x002420E8,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_IsKeyLedOn,3,0x00241A20 0x00242250,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_IsPanelOn,3,0x002417E0 0x00242298,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHal,2,0x002416C0,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_GetPanelInterface2,2,0x002421D8,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_InitIOPort,2,0x002416E0,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_SetAudioHWMuteOff,2,0x00241868,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_SetAudioHWMuteOn,2,0x00241838,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_SetBackLightOff,2,0x00241AF0,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_SetBackLightOn,2,0x00241AC0,27,ranked-ambiguous
+0x00195C20,sub_195C20,SecHalBoard_SetKeyLedOff,2,0x002419F0,27,ranked-ambiguous
+0x00196464,sub_196464,SecHalScaler_IsWakeupByOtherSourceCableConnection,3,0x00242328 0x00242548,5,ranked-ambiguous
+0x00196464,sub_196464,SecHal,2,0x00242308,5,ranked-ambiguous
+0x00196464,sub_196464,SecHalScaler_GetBootReason,2,0x00242368,5,ranked-ambiguous
+0x00196464,sub_196464,SecHalScaler_IsFakeDPMSOn,2,0x00242390,5,ranked-ambiguous
+0x00196464,sub_196464,SecHalScaler_SetSystemPowerState,2,0x00242448,5,ranked-ambiguous
+0x001970A8,sub_1970A8,__debugMenuSecLibFactoryHandler,2,0x0023CDA8,1,single-candidate
+0x00197324,sub_197324,__debugMenuSecLibFactoryHandler,1,0x0023CDA8,1,single-candidate
+0x0019D388,sub_19D388,SecLibPower_SetPowerState,2,0x00244888,2,ranked-ambiguous
+0x0019D388,sub_19D388,SecHalScaler_SetFakeDPMS,1,0x002448D8,2,ranked-ambiguous
+0x0019E334,sub_19E334,SecLib,2,0x00244B40,1,single-candidate
+0x0019E490,sub_19E490,SecLibEdid_NVRamReadTblEDID,2,0x00244BE8,1,single-candidate
+0x0019E500,sub_19E500,SecLibEdid_NVRamWriteBlockEDID,2,0x00244C08,1,single-candidate
+0x0019E83C,sub_19E83C,__WriteEdid,4,0x00244C28,1,single-candidate
+0x0019EAD4,sub_19EAD4,SecLibEdid_IsEDIDSupportHDR,2,0x00244C38,1,single-candidate
+0x0019EB70,sub_19EB70,SecLibEdid_IsEDIDSupporFreeSync,2,0x00244C58,1,single-candidate
+0x0019ECAC,sub_19ECAC,__DriveEdid,3,0x00244C98,2,ranked-ambiguous
+0x0019ECAC,sub_19ECAC,SecLibEdid_ConfigSCDCByEDIDType,2,0x00244C78,2,ranked-ambiguous
+0x0019EF5C,sub_19EF5C,SecLibEdid_DriveEDID,2,0x00244CA8,1,single-candidate
+0x0019F090,sub_19F090,SecLibEdid_RestoreEdidSN,6,0x00244CC0,2,ranked-ambiguous
+0x0019F090,sub_19F090,SecLibEdid_ConfigSCDCByEDIDType,2,0x00244C78,2,ranked-ambiguous
+0x0019F5C0,sub_19F5C0,SecLibEdid_GetCurrentEDIDTypeByWindow,2,0x00244CE0,1,single-candidate
+0x0019FAF8,sub_19FAF8,SecLibFactory_SetSystemStatus,27,0x002450E8,1,single-candidate
+0x0019FF70,sub_19FF70,SecLibFactory_IsLoadedGuiResource,2,0x00245108,1,single-candidate
+0x001A3A18,sub_1A3A18,SecLibFactory_GammaLoadTable,2,0x002455C8,1,single-candidate
+0x001A5344,sub_1A5344,OSDLibDebug,4,0x00247438 0x00247468,1,single-candidate
+0x001A53F8,sub_1A53F8,OSDLibDebug,2,0x00247490,1,single-candidate
+0x001A5430,sub_1A5430,OSDLibDebug,6,0x002474A8 0x002474D0 0x002474F0,1,single-candidate
+0x001A54F8,sub_1A54F8,OSDLibDebug,2,0x00247510,2,ranked-ambiguous
+0x001A54F8,sub_1A54F8,SecLibOsd_EnableOsd,2,0x00247510,2,ranked-ambiguous
+0x001A5530,sub_1A5530,OSDLibDebug,2,0x00247538,2,ranked-ambiguous
+0x001A5530,sub_1A5530,SecLibOsd_DisableOsd,2,0x00247538,2,ranked-ambiguous
+0x001A5574,sub_1A5574,OSDLibDebug,2,0x00247560,2,ranked-ambiguous
+0x001A5574,sub_1A5574,SecLibOsd_ClearAllOsd,2,0x00247560,2,ranked-ambiguous
+0x001A55AC,sub_1A55AC,OSDLibDebug,2,0x00247490,1,single-candidate
+0x001A55E4,sub_1A55E4,OSDLibDebug,2,0x00247490,1,single-candidate
+0x001A561C,sub_1A561C,OSDLibDebug,2,0x00247588,1,single-candidate
+0x001A5700,sub_1A5700,OSDLibDebug,2,0x002475E0,1,single-candidate
+0x001A577C,sub_1A577C,OSDLibDebug,2,0x00247630,1,single-candidate
+0x001A57CC,sub_1A57CC,OSDLibDebug,2,0x00247668,1,single-candidate
+0x001A581C,sub_1A581C,OSDLibDebug,1,0x002476A0,1,single-candidate
+0x001A5870,sub_1A5870,OSDLibDebug,1,0x002476F0,1,single-candidate
+0x001A58C4,sub_1A58C4,OSDLibDebug,2,0x00247740,1,single-candidate
+0x001A5914,sub_1A5914,OSDLibDebug,2,0x00247778,1,single-candidate
+0x001A595C,sub_1A595C,OSDLibDebug,2,0x002477A8,1,single-candidate
+0x001A59A8,sub_1A59A8,OSDLibDebug,3,0x002476A0 0x002477E8,1,single-candidate
+0x001A5AB4,sub_1A5AB4,OSDLibDebug,6,0x00247820 0x00247840 0x00247868,1,single-candidate
+0x001A5BB4,sub_1A5BB4,OSDLibDebug,2,0x00247888,1,single-candidate
+0x001A5C08,sub_1A5C08,OSDLibDebug,4,0x00247490,1,single-candidate
+0x001A5CAC,sub_1A5CAC,OSDLibDebug,2,0x002478A8,2,ranked-ambiguous
+0x001A5CAC,sub_1A5CAC,SecLibOsd_InitializeOSD,2,0x002478A8,2,ranked-ambiguous
+0x001A5E04,sub_1A5E04,OSDLibDebug,4,0x002478E0,1,single-candidate
+0x001A5EF4,sub_1A5EF4,OSDLibDebug,2,0x002478E0,1,single-candidate
+0x001A5F6C,sub_1A5F6C,OSDLibDebug,2,0x002478E0,1,single-candidate
+0x001A608C,sub_1A608C,OSDLibDebug,4,0x00247938 0x00247960,1,single-candidate
+0x001A610C,sub_1A610C,OSDLibDebug,2,0x00247490,1,single-candidate
+0x001A6144,sub_1A6144,OSDLibDebug,2,0x00247490,1,single-candidate
+0x001A617C,sub_1A617C,OSDLibDebug,2,0x00247980,1,single-candidate
+0x001A61C0,sub_1A61C0,OSDLibDebug,2,0x002479A0,1,single-candidate
+0x001A61F8,sub_1A61F8,OSDLibDebug,2,0x002479A0,1,single-candidate
+0x001A6230,sub_1A6230,OSDLibDebug,2,0x002474A8,1,single-candidate
+0x001A6270,sub_1A6270,OSDLibDebug,1,0x002476A0,1,single-candidate
+0x001A62C4,sub_1A62C4,OSDLibDebug,1,0x002476A0,1,single-candidate
+0x001A6318,sub_1A6318,OSDLibDebug,2,0x002479A0,1,single-candidate
+0x001A6350,sub_1A6350,OSDLibDebug,2,0x002479A0,1,single-candidate
+0x001A6388,sub_1A6388,OSDLibDebug,2,0x002479B8,1,single-candidate
+0x001A64B8,sub_1A64B8,OSDLibDebug,4,0x002477A8,2,ranked-ambiguous
+0x001A64B8,sub_1A64B8,SecLibOsd_ShowLogo,2,0x00247408,2,ranked-ambiguous
+0x001A6830,sub_1A6830,OSDLibDebug,2,0x00247A38,2,ranked-ambiguous
+0x001A6830,sub_1A6830,SecLibOsd_DisableOsdAll,2,0x00247A38,2,ranked-ambiguous
+0x001A6994,sub_1A6994,SecLibOsd_CloseLogo,2,0x00247420,1,single-candidate
+0x001A6A4C,sub_1A6A4C,OSDLibDebug,2,0x00247778,1,single-candidate
+0x001A6AFC,sub_1A6AFC,OSDLibDebug,5,0x00247778,1,single-candidate
+0x001A6E70,sub_1A6E70,OSDLibDebug,4,0x00247438 0x002474A8 0x00247778,1,single-candidate
+0x001A727C,sub_1A727C,SecLibPicture_DriveEnergySavingSolution,2,0x00247AA0,1,single-candidate
+0x001A7334,sub_1A7334,SecLibPicture_DriveResponseTime,1,0x00247AC8,1,single-candidate
+0x001A748C,sub_1A748C,__checkPdimmingFunction,2,0x00247AE8,1,single-candidate
+0x001A77B8,sub_1A77B8,SecLibPicture_DriveDynamicPwm,8,0x00247B00,1,single-candidate
+0x001A8194,sub_1A8194,__DriveDimming_LEDDrv_PWM,4,0x00247B20,2,ranked-ambiguous
+0x001A8194,sub_1A8194,SecLibPicture_DriveEnergySavingSolution,2,0x00247AA0,2,ranked-ambiguous
+0x001A8480,sub_1A8480,SecLibPicture_DriveEnergySavingSolution,2,0x00247AA0,2,ranked-ambiguous
+0x001A8480,sub_1A8480,__DriveDimming_LEDDrv_I2C,2,0x00247B40,2,ranked-ambiguous
+0x001A87F8,sub_1A87F8,SecLibPicture_DimmingControl,4,0x00247B60,1,single-candidate
+0x001A8B1C,sub_1A8B1C,__printDimmingValue,20,0x00247B80,1,single-candidate
+0x001A951C,sub_1A951C,SecLibPicture_SetWhiteBalanceReset,2,0x002482B8,1,single-candidate
+0x001A974C,sub_1A974C,SecLibPicture_HDROffOnHandler,5,0x002482E0,2,ranked-ambiguous
+0x001A974C,sub_1A974C,SecHalScaler_LoadColorSpaceGamma,2,0x00248368,2,ranked-ambiguous
+0x001A9A00,sub_1A9A00,SecLibPicture_AdjustColorSpaceMode,5,0x00248300,1,single-candidate
+0x001A9B50,sub_1A9B50,SecLibPicture_MakeBrightnessSmooth,2,0x00248560,1,single-candidate
+0x001A9D5C,sub_1A9D5C,__getEyeSaverModeValue,2,0x00248588,1,single-candidate
+0x001AA024,sub_1AA024,__printPictureDataloaded,33,0x002485B8,1,single-candidate
+0x001AA5C0,sub_1AA5C0,__printPictureDatafromDefaultTable,24,0x002485D8,1,single-candidate
+0x001AAB6C,sub_1AAB6C,__getPCPictureModeValue,4,0x00248600,1,single-candidate
+0x001AAF38,sub_1AAF38,__getMagicBrightValue,4,0x00248618,1,single-candidate
+0x001AB1CC,sub_1AB1CC,__getAVPictureModeValue,2,0x00248630,1,single-candidate
+0x001AB658,sub_1AB658,__getGameModeValue,2,0x002485A0,1,single-candidate
+0x001AB790,sub_1AB790,SecLibPicture_AdjustEyeProtect,9,0x00248648,1,single-candidate
+0x001ABB10,sub_1ABB10,SecLibPicture_UpdateColorParameter,4,0x00248668,1,single-candidate
+0x001ABBE8,sub_1ABBE8,SecLibPicture_SetFreerunColorParameter,10,0x00248690,1,single-candidate
+0x001ABFB4,sub_1ABFB4,SecLibPicture_SetCommonPictureParameter,6,0x002486B8,1,single-candidate
+0x001AC1F8,sub_1AC1F8,SecLibPicture_DriveMagicBright,17,0x002486E0 0x00249718,1,single-candidate
+0x001AC6D0,sub_1AC6D0,SecLibPicture_ResetPictureMode,31,0x00248700,1,single-candidate
+0x001AD010,sub_1AD010,SecLibPicture_DriveBlackLevel,2,0x00288C60,2,ranked-ambiguous
+0x001AD010,sub_1AD010,SecLibPicture_GetHdmiBlackLevelValue,2,0x00288D10,2,ranked-ambiguous
+0x001AD1A8,sub_1AD1A8,__getTargetGammaTableIndex,2,0x00288C80,1,single-candidate
+0x001AD510,sub_1AD510,SecLibPicture_DriveGamma,2,0x00288CA0,1,single-candidate
+0x001AD880,sub_1AD880,SecLibPicture_AdjustBlackEqualizer,2,0x00288CC0,1,single-candidate
+0x001ADA00,sub_1ADA00,SecLibPicture_AdjustContrastEnhancer,2,0x00288CE8,1,single-candidate
+0x001ADACC,sub_1ADACC,SecLibPower_SetPowerState,5,0x00288F68,1,single-candidate
+0x001ADE9C,sub_1ADE9C,SecLibPower_DriveOffTimerCounter,2,0x00289048,1,single-candidate
+0x001ADF58,sub_1ADF58,SecLibPower_OffTimerHandler,3,0x00289070,1,single-candidate
+0x001AE0A4,sub_1AE0A4,SecLibPower_ECOOffTimerHandlerPM,2,0x00289090,1,single-candidate
+0x001AE3E0,sub_1AE3E0,SecLibScreen_ScreenMute,4,0x002891C0,1,single-candidate
+0x001AE558,sub_1AE558,SecLibScreen_GetScreenMute,2,0x002891D8,1,single-candidate
+0x001AE5C0,sub_1AE5C0,SecLibScreen_ScreenAllOn,2,0x002891F8,1,single-candidate
+0x001AE79C,sub_1AE79C,SecLibScreen_AdjustVPosition,2,0x00289320,1,single-candidate
+0x001AE814,sub_1AE814,SecLibScreen_AdjustHPosition,2,0x00289340,1,single-candidate
+0x001AEE04,sub_1AEE04,SecLibScreen_GetCaptureOverScanRatio,8,0x00289838,1,single-candidate
+0x001AF11C,sub_1AF11C,SecLibScreen_SetVendorDisplayAspectRatio,4,0x00289860,1,single-candidate
+0x001AF200,sub_1AF200,SecLibScreen_SetVendorDisplayAspectRatio,8,0x00289860,1,single-candidate
+0x001AF3F0,sub_1AF3F0,SecLibScreen_SetVendorDisplayAspectRatio,3,0x00289860,1,single-candidate
+0x001AF538,sub_1AF538,SecLibSound_AudioMuteOn,4,0x00289890 0x002899E0,1,single-candidate
+0x001AF580,sub_1AF580,SecLibSound_AudioMuteOff,4,0x002898A8 0x00289A20,1,single-candidate
+0x001AF5C8,sub_1AF5C8,SecLibSound_SetAudioSource,4,0x002898C8 0x00289A60,1,single-candidate
+0x001AF6D0,sub_1AF6D0,SecLibSound_SetVolume,2,0x00289AB8,1,single-candidate
+0x001AF72C,sub_1AF72C,SecLibSound_SetAudioChannel,4,0x00289900 0x00289B10,4,ranked-ambiguous
+0x001AF72C,sub_1AF72C,SecLibSound_SetAudioSource,4,0x002898C8 0x00289A60,4,ranked-ambiguous
+0x001AF72C,sub_1AF72C,SecLibSound_SetVolume,4,0x002898E8 0x00289AB8,4,ranked-ambiguous
+0x001AF72C,sub_1AF72C,SecLibSound_AudioMuteOff,2,0x002898A8,4,ranked-ambiguous
+0x001AF9E4,sub_1AF9E4,SecLibSound_AudioMuteOff,6,0x002898A8 0x00289A20 0x00289B50,4,ranked-ambiguous
+0x001AF9E4,sub_1AF9E4,SecLibSound_AudioMuteOn,4,0x00289890 0x002899E0,4,ranked-ambiguous
+0x001AF9E4,sub_1AF9E4,SecLibSound_SetVolume,3,0x002898E8 0x00289AB8,4,ranked-ambiguous
+0x001AF9E4,sub_1AF9E4,SecLibSound_ChangeVolume,2,0x00289920,4,ranked-ambiguous
+0x001AFC68,sub_1AFC68,SecLibSound_AudioMuteOff,4,0x002898A8 0x00289A20,2,ranked-ambiguous
+0x001AFC68,sub_1AFC68,SecLibSound_SetModeLockTurnOnVolume,4,0x002899B8 0x00289CD8,2,ranked-ambiguous
+0x001B0008,sub_1B0008,SecLibSource_GetCurrentSecSourceIndex,1,0x00289D58,2,ranked-ambiguous
+0x001B0008,sub_1B0008,SecLibSource_GetSecSourceIndexBySecName,1,0x00289D30,2,ranked-ambiguous
+0x001B0120,sub_1B0120,SecLibSource_GetCurrentSecSourceIndex,1,0x00289D58,2,ranked-ambiguous
+0x001B0120,sub_1B0120,SecLibSource_GetSecSourceIndexBySecName,1,0x00289D30,2,ranked-ambiguous
+0x001B02C0,sub_1B02C0,SecLibSource_GetCurrentSecSourceName,2,0x00289D80,1,single-candidate
+0x001B0338,sub_1B0338,SecLibSource_DriveInputSource,2,0x00289DA8,2,ranked-ambiguous
+0x001B0338,sub_1B0338,SecLibSource_GetSecSourceIndexBySecName,2,0x00289D30,2,ranked-ambiguous
+0x001B0500,sub_1B0500,SecLibSource_DriveInputSource,1,0x00289DA8,3,ranked-ambiguous
+0x001B0500,sub_1B0500,SecLibSource_GetCurrentSecSourceName,1,0x00289D80,3,ranked-ambiguous
+0x001B0500,sub_1B0500,SecLibSource_GetSecSourceIndexBySecName,1,0x00289D30,3,ranked-ambiguous
+0x001B0898,sub_1B0898,SecLibSource_PrintAutoSourceDebugInfo,7,0x00289DC8,1,single-candidate
+0x001B09E8,sub_1B09E8,SecLibSource_PrintAutoSourceState,6,0x00289DF0,1,single-candidate
+0x001B0AF0,sub_1B0AF0,SecLibSource_AutoSourceSearchNewStart,2,0x00289E40,1,single-candidate
+0x001B0CA0,sub_1B0CA0,SecLibSource_GetNextConnectedSourceIndex,4,0x00289E68,1,single-candidate
+0x001B0F18,sub_1B0F18,SecLibSource_UpdateCableConnectionEvt,6,0x00289E98,2,ranked-ambiguous
+0x001B0F18,sub_1B0F18,SecLibSource_GetSecSourceIndexBySecName,3,0x00289D30,2,ranked-ambiguous
+0x001B13F0,sub_1B13F0,SecLibSource_GetSecSourceIndexBySecName,4,0x00289D30,2,ranked-ambiguous
+0x001B13F0,sub_1B13F0,SecLibSource_UpdateNewSignalInputEvt,2,0x00289EC0,2,ranked-ambiguous
+0x001B1624,sub_1B1624,SecLibSource_SetAutoSSIgnoreSyncChgTimer,2,0x00289EE8,1,single-candidate
+0x001B167C,sub_1B167C,SecLibSource_GetSecSourceIndexBySecName,4,0x00289D30,2,ranked-ambiguous
+0x001B167C,sub_1B167C,SecLibSource_SetAutoSSIgnoreSyncChgTimer,2,0x00289EE8,2,ranked-ambiguous
+0x001B1934,sub_1B1934,SecLibSource_AutoSourceSwitchHandler,11,0x00289F18,6,ranked-ambiguous
+0x001B1934,sub_1B1934,SecLibSource_PrintAutoSourceState,6,0x00289DF0,6,ranked-ambiguous
+0x001B1934,sub_1B1934,SecLibSource_GetNextConnectedSourceIndex,4,0x00289E68,6,ranked-ambiguous
+0x001B1934,sub_1B1934,SecLibSource_GetSecSourceIndexBySecName,3,0x00289D30,6,ranked-ambiguous
+0x001B1934,sub_1B1934,SecLibSource_AutoSourceSearchNewStart,2,0x00289E40,6,ranked-ambiguous
+0x001B1934,sub_1B1934,SecLibSource_AutoSourceStateInit,2,0x00289E18,6,ranked-ambiguous
+0x001B2254,sub_1B2254,SecLibSource_GetCurrentSecSourceName,2,0x00289D80,1,single-candidate
+0x001B23A0,sub_1B23A0,SecLibSource_IsFreeSyncWorkable,1,0x0028A600,1,single-candidate
+0x001B23E0,sub_1B23E0,SecLibSource_IsFreeSyncWorkable,1,0x0028A600,1,single-candidate
+0x001B24E4,sub_1B24E4,SecLibSource_DriveFreeSyncOnOff,3,0x0028A630 0x0028A8B8,2,ranked-ambiguous
+0x001B24E4,sub_1B24E4,SecLibSource_IsFreeSyncWorkable,2,0x0028A600,2,ranked-ambiguous
+0x001B2770,sub_1B2770,SecLibSource_ResetMccsFreeSyncStatus,3,0x0028A8D8,1,single-candidate
+0x001B2884,sub_1B2884,SecLibSource_GetMccsFreeSyncStatus,6,0x0028A900,1,single-candidate
+0x001B299C,sub_1B299C,SecLibSource_SetMccsFreeSyncStatus,5,0x0028A928,1,single-candidate
+0x001B312C,sub_1B312C,SecLibSource_DriveRefreshRate,2,0x0028AA08,2,ranked-ambiguous
+0x001B312C,sub_1B312C,SecLibSource_AdjustRefreshRate,1,0x0028AA28,2,ranked-ambiguous
+0x001B3784,sub_1B3784,SecLibUserData_InitDebugData,2,0x0028AA68,1,single-candidate
+0x001B38B0,sub_1B38B0,SecLibUserData_InitDebugData,2,0x0028AA68,1,single-candidate
+0x001B42D0,sub_1B42D0,SecLibUserData_InitFactoryData,2,0x0028AB60,1,single-candidate
+0x001B440C,sub_1B440C,SecLibUserData_InitFactoryData,2,0x0028AB60,1,single-candidate
+0x001B477C,sub_1B477C,SecLibUserData_InitGamePictureData,2,0x0028ABB8,1,single-candidate
+0x001B4E40,sub_1B4E40,SecLibUserData_InitGamePictureData,2,0x0028ABB8,1,single-candidate
+0x001B4FA8,sub_1B4FA8,SecLibUserData_SaveDiffGamePictureData,6,0x0028ABE0,1,single-candidate
+0x001B55E4,sub_1B55E4,SecLibUserData_InitUserData,2,0x0028AD88,1,single-candidate
+0x001B5D88,sub_1B5D88,SecLibUserData_SaveDiffUserData,5,0x0028ADA8,1,single-candidate
+0x001B5ECC,sub_1B5ECC,SecLibUserData_SaveDiffToEEPROM,2,0x0028ADC8,1,single-candidate
+0x001B7E04,sub_1B7E04,SecAppOsd_DrawOSDBGWindow,3,0x0028B090 0x0028B0B0,1,single-candidate
+0x001C4180,sub_1C4180,SecAppOsd_ExitControlMenuLevel,2,0x00297CC0,1,single-candidate
+0x001CCA1C,sub_1CCA1C,SecAppOsd_DisplayUpKeyDirectOsd,2,0x00299010,1,single-candidate
+0x001D0C60,sub_1D0C60,SecAppOsd_DisplayLeftRightMenu,2,0x002996A8,1,single-candidate
+0x001D0D14,sub_1D0D14,SecAppOsd_UpdateSourceListOSD,2,0x002996F8,1,single-candidate
+0x001D2018,sub_1D2018,SecAppOsd_DisplayUSBUpdateVersionOsd,4,0x00299780,1,single-candidate
+0x001D24B8,sub_1D24B8,SecAppOsd_DisplayUSBUpdateErrorOsd,2,0x00299850,1,single-candidate
+0x001D3420,sub_1D3420,SecAppOsd_DisplayVirtualAimPoint,2,0x0029A418,1,single-candidate
+0x001D58C8,sub_1D58C8,SecAppOsd_FillOSDArenaButton,2,0x002A4830,1,single-candidate
+0x001D6FE8,sub_1D6FE8,SecAppOsd_MenuHandler,2,0x002A48A8,1,single-candidate
+0x001D72EC,sub_1D72EC,SecAppOsd_IsNoCableOSDDisplayCond,4,0x002A4A38,1,single-candidate
+0x001D73D4,sub_1D73D4,SecAppOsd_IsNoCableOSDDisplayCond,3,0x002A4A38,1,single-candidate
+0x001DC8E8,sub_1DC8E8,SecAppOsd_UserValueDeliverToRamReg,2,0x002A5470,1,single-candidate
+0x001DD140,sub_1DD140,SecAppOsd_RamRegDeliverToUserValue,4,0x002A5498,1,single-candidate
+0x001E03DC,sub_1E03DC,__failReportOfUsbCheck,13,0x002A75C0,1,single-candidate
+0x001E07F0,sub_1E07F0,SecAppOsd_DisplayUSBUpdateNowOsd,2,0x002A75D8,1,single-candidate
+0x001E415C,sub_1E415C,SecApp_AdjustFunctions,5,0x002EB250 0x002EB268,1,single-candidate
+0x001E4550,sub_1E4550,SecLibCommon_UpdateExtFirmware,2,0x002EB2E0,1,single-candidate

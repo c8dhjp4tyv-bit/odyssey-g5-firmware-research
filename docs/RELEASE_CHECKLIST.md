@@ -21,6 +21,9 @@ operator checklist and must be completed again for every physical update.
 - [x] Malformed images are rejected under `python3 -O`.
 - [x] Read-only inventory parser covers every package record.
 - [x] Generated catalogs contain metadata, not proprietary payload bytes.
+- [x] SPARC and 8051 structural catalogs regenerate byte-identically.
+- [x] Companion records 4 and 8 pass the homologous trap-schema validator.
+- [x] All 17 tests pass in normal and optimized Python modes.
 - [x] All local Markdown links resolve.
 
 ## Build

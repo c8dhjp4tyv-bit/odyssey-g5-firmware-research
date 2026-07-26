@@ -40,6 +40,34 @@ python3 tools/inventory_firmware.py /path/to/firmware.img
 python3 tools/inventory_firmware.py /path/to/firmware.img --json
 ```
 
+`tools/inventory_companion_records.py` validates the homologous 17-entry
+exception-name tables in records 4 and 8:
+
+```bash
+python3 tools/inventory_companion_records.py /path/to/firmware.img
+```
+
+## Static structural recovery
+
+The dependency-free scanners operate directly on a locally supplied,
+SHA-256-pinned image and never modify it:
+
+```bash
+python3 tools/recover_sparc_structure.py \
+  /path/to/firmware.img inventory/main/functions.json output-dir/
+python3 tools/recover_8051_structure.py /path/to/firmware.img output-dir/
+python3 tools/infer_debug_symbols.py \
+  inventory/main/functions.json inventory/main/strings.json \
+  output-dir/main_embedded_symbol_candidates.csv
+```
+
+The SPARC scanner recovers direct-call targets, `SAVE` prologues, indirect
+`JMPL` sites, absolute addresses, and simple callback registration patterns.
+The 8051 scanner follows reachable control flow with a full opcode-length
+table and stops explicitly at computed dispatch. Embedded-symbol inference
+extracts function-like names from longer diagnostic strings; its ambiguity
+columns must be retained.
+
 ## SPARC V8 analysis emulator
 
 The research harness is a small dependency-free interpreter, not a

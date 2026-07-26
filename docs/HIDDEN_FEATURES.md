@@ -106,11 +106,19 @@ implementation is present in the common scaler library:
 Related compiled routines reference `DRV_LDC_UpdateSegmentBoundary` at
 `VA 0x129E54` / file `0x157E54`, `DRV_LDC_SetLDCSegment` at
 `VA 0x12A074` / file `0x158074`, and intensity-gain update code at
-`VA 0x12A734` / file `0x158734`. The identified test/setup caller at
-`VA 0x1588B0` has no external code caller in the recovered direct-call graph.
-This is strong evidence of a shared-platform library and test surface, but
-not evidence that the G55C has addressable backlight zones. Forcing a resource
-flag would therefore cross a hardware boundary that was not verified.
+`VA 0x12A734` / file `0x158734`. The independent call-target scan confirms
+that the full panel-resolution/segment setup routine at `VA 0x1588B0` has no
+external direct caller. A smaller intensity-mode helper at `VA 0x158C34` *is*
+reachable through wrapper `0x172F5C` from normal initialization
+(`0x114D14`, `0x116EC0`); it fills common gain arrays and is compatible with
+global dynamic dimming. Reachability of that shared gain helper is not proof
+of independent physical zones.
+
+Thus the negative result is narrower and stronger: common LDC arithmetic is
+real and partly reused, while the G55C-specific full zone setup, zone-driver
+transport, and hardware topology remain unverified and the selected LED
+driver type is global PWM. Forcing a resource flag would cross that unresolved
+hardware boundary.
 
 ## Common-platform code is not a model unlock
 

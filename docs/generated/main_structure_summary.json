@@ -1,0 +1,22 @@
+{
+  "image_sha256": "2e901cf2677b688d740dc62b279faedbee991c726ab5c3dcf75d156115cc96e7",
+  "mapping": {
+    "file_offset": 1236992,
+    "virtual_address": 1048576,
+    "length": 982240
+  },
+  "ida_defined_starts": 3074,
+  "internal_direct_call_targets": 2674,
+  "save_prologues": 2612,
+  "recovered_start_union": 3602,
+  "new_start_candidates": 528,
+  "new_high": 190,
+  "new_medium": 112,
+  "new_low": 226,
+  "indirect_calls": 131,
+  "computed_jumps": 256,
+  "absolute_memory_references": 8022,
+  "absolute_memory_targets": 1258,
+  "static_callback_bindings": 27,
+  "static_callback_slots": 27
+}

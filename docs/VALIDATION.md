@@ -95,6 +95,23 @@ diffs=0x273367,0x2D2776
 verification=PASS
 ```
 
+The current public suite contains 17 tests in each mode. It additionally
+checks the complete 8051 opcode-length table, direct-call recovery, SPARC
+`SAVE`/return/indirect-call decoding, cross-register delay-slot address
+recovery, callback slots, embedded-symbol mapping, and the companion-record
+exception schema.
+
+All generated structural artifacts were regenerated from the pinned private
+image and exported IDA metadata, then byte-compared with
+`docs/generated/*`:
+
+```text
+SPARC catalogs:       byte-identical
+8051 catalogs:        byte-identical
+embedded-name CSVs:   byte-identical
+REPRODUCIBLE_OUTPUTS_PASS
+```
+
 ## Hardware observations
 
 - MGA page opened through the existing long-UP gesture.

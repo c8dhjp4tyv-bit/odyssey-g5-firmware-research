@@ -156,6 +156,20 @@ Record 4 is therefore main-SPARC companion runtime/trap/config data; record 8
 is the equivalent companion for the link image. Their precise loader ABI
 remains undocumented, but their role and pairing are high confidence.
 
+The shared schema is now reproducibly validated by
+[`inventory_companion_records.py`](../tools/inventory_companion_records.py).
+Both records contain signature `0x05B8D800` followed by the same 17 trap IDs:
+
+```text
+00 01 02 03 04 05 06 07 08 09 0A 0B 20 28 24 2A 2B
+```
+
+Record 4's table begins at payload `+0xB4` (file `0x2B514`) and its pointers
+land in main data `0x1F9A98..0x1F9CC0`. Record 8's table begins at payload
+`+0x0` (file `0x349200`) and points into link image
+`0xA0065B48..0xA0065D70`. This proves a homologous producer/consumer data
+contract; it does not prove how the loader relocates every later field.
+
 ## Reproducible inventory command
 
 ```bash

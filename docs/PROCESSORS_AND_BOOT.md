@@ -71,9 +71,11 @@ Record 1 resets with:
 ```
 
 Aggressive 8051 autoanalysis is unreliable here because code, tables, and
-indirect dispatch data overlap. Subsystem identification therefore uses reset
-vectors, valid direct calls, register access, and diagnostic strings rather
-than claiming exact function boundaries.
+indirect dispatch data overlap. The independent reachable-CFG scan nevertheless
+recovers 18,367 instructions, 226 call/vector entry candidates, 679 direct
+call sites, and 17 exact `JMP @A+DPTR` boundaries. Subsystem identification
+uses those paths, register access, and diagnostic strings without pretending
+computed dispatch was resolved.
 
 Confirmed or high-confidence responsibilities:
 
@@ -131,6 +133,12 @@ This controller participates in locating and staging update files. The main
 SPARC application still performs the model/version UI and state-machine work,
 so “USB updater” is a cross-processor pipeline rather than one function.
 
+The reachable-CFG scan covers 3,718 instructions and finds 63 entry candidates,
+212 direct call sites, three `JMP @A+DPTR` boundaries, and one call target
+outside the local record. Record 0 correspondingly has 2,175 reachable
+instructions, 34 entry candidates, 84 direct calls, and two computed jumps.
+See [DEEP_CONTROL_FLOW.md](DEEP_CONTROL_FLOW.md).
+
 ## SPARC trap/vector record
 
 Record 3 begins with SPARC V8 big-endian vector-like code. At the probable
@@ -174,6 +182,12 @@ call edges:      8,677
 strings:         16,762
 symbol anchors:  250 debug-string-backed mappings
 ```
+
+An independent raw-instruction scan expands this to a 3,602-entry structural
+candidate union, including 528 starts not defined by IDA, and inventories 131
+indirect calls, 256 computed jumps, and 27 static callback registrations.
+These are candidate callable entries rather than a claim of reconstructed
+source functions. See [DEEP_CONTROL_FLOW.md](DEEP_CONTROL_FLOW.md).
 
 See [MAIN_APPLICATION_MAP.md](MAIN_APPLICATION_MAP.md).
 

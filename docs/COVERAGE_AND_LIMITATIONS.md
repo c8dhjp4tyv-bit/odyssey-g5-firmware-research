@@ -13,14 +13,14 @@ package region and claims are tied to evidence and confidence.
 | Region | Structural coverage | Semantic coverage | Status |
 |---|---|---|---|
 | Global/record headers | complete parser and checksum validation | format understood | Confirmed |
-| Record 0, 8051 boot | reset/startup, 46 conservative functions | flash/partition/startup mapped | High |
-| Record 1, STBC | reset and string/register survey | power/key/CC/CEC/mailbox roles mapped | High, boundaries incomplete |
-| Record 2, update 8051 | reset and string/register survey | USB/filesystem/ISP role mapped | High, boundaries incomplete |
+| Record 0, 8051 boot | 2,175 reachable instructions; 34 CFG entries; 2 computed-jump boundaries | flash/partition/startup mapped | High |
+| Record 1, STBC | 18,367 reachable instructions; 226 CFG entries; 17 computed-jump boundaries | power/key/CC/CEC/mailbox roles mapped | High |
+| Record 2, update 8051 | 3,718 reachable instructions; 63 CFG entries; 3 computed-jump boundaries | USB/filesystem/ISP role mapped | High |
 | Record 3, SPARC vector | entire payload disassembled as SPARC | vector/boot role mapped | Runtime base probable |
-| Record 4, config | entire payload inspected | main trap/runtime/USB-data config mapped | ABI partly unknown |
-| Records 5+6, main app | full IDA segments | 3,074 functions, 250 symbol anchors, major subsystems mapped | High |
+| Record 4, config | entire payload inspected; 17-entry trap schema validated | main trap/runtime/USB-data config mapped | ABI partly unknown |
+| Records 5+6, main app | full IDA plus raw structural scan | 3,074 IDA functions; 3,602 entry candidates; 411 embedded-name candidates; major subsystems mapped | High |
 | Record 7, link image | full IDA segment | 565 functions, 22 EQ/link anchors | High |
-| Record 8, aux config | entire payload inspected | link trap/runtime/config role mapped | ABI partly unknown |
+| Record 8, aux config | entire payload inspected; homologous 17-entry trap schema validated | link trap/runtime/config role mapped | ABI partly unknown |
 | Record 9, footer | every pair decoded | absent targets/padding noted | Confirmed |
 
 ## Main-function classification
@@ -44,11 +44,15 @@ Direct string-xref anchors classify at least:
 | events/tasks | 44 |
 | diagnostics | 33 |
 
-Categories overlap. Another 788 previously unanchored main functions received
+Categories overlap. Another 788 previously unanchored IDA containers received
 one lower-confidence graph label by a conservative neighbor-voting rule.
-1,928 remain unclassified because they have no decisive direct evidence or
-graph consensus. Those functions are still listed by address, size, callers,
-and callees in [main_functions.csv](generated/main_functions.csv).
+The old count of 1,928 unclassified IDA functions is retained as a **semantic**
+metric, not a structural gap. Raw recovery found 528 additional callable-entry
+candidates and demonstrated that IDA sometimes merges several independently
+called entries into one container. The generated catalogs now preserve all
+3,602 candidate entries, 387 indirect transfers, 8,022 absolute references,
+27 static callback bindings, and 411 function-like embedded-name candidates.
+Unknown arithmetic/register helpers remain honestly unnamed.
 
 For the auxiliary image, 259 of 565 functions have a direct or conservative
 graph-inferred category; 306 remain unclassified.
@@ -88,7 +92,8 @@ graph-inferred category; 306 remain unclassified.
 
 The following cannot be resolved from this package alone:
 
-1. exact runtime loader ABI for records 3, 4, and 8;
+1. exact runtime loader/relocation ABI for records 3, 4, and 8, beyond the
+   validated homologous exception-table contract;
 2. contents of footer-described but absent flash targets `0x30000` and
    `0xB0000`;
 3. indirect-call targets populated only in runtime RAM or vendor ROM;
@@ -97,7 +102,7 @@ The following cannot be resolved from this package alone:
    traces;
 6. whether another G55C hardware revision uses different panel, TCON, or
    scaler companion parts;
-7. exact source-level intent of every unclassified stripped function.
+7. exact source-level intent and types of every stripped leaf helper.
 
 These are not reasons to guess. Resolving them would require at least one of:
 
@@ -118,6 +123,7 @@ private hardware dumps. They do include:
 - exact hashes and address mappings;
 - raw representative disassembly;
 - generated function and symbol-anchor catalogs;
+- independent SPARC/8051 control-flow, memory-reference, and callback catalogs;
 - emulator observations with inputs/results;
 - hardware incident and final-state notes.
 

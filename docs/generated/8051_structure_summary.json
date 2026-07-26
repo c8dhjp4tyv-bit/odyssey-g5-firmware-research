@@ -1,0 +1,38 @@
+{
+  "image_sha256": "2e901cf2677b688d740dc62b279faedbee991c726ab5c3dcf75d156115cc96e7",
+  "records": [
+    {
+      "record_index": 0,
+      "payload_length": 32768,
+      "vector_roots": 1,
+      "reachable_instructions": 2175,
+      "reachable_bytes": 3980,
+      "function_entry_candidates": 34,
+      "direct_call_sites": 84,
+      "external_call_targets": 0,
+      "computed_jumps": 2
+    },
+    {
+      "record_index": 1,
+      "payload_length": 64192,
+      "vector_roots": 6,
+      "reachable_instructions": 18367,
+      "reachable_bytes": 30476,
+      "function_entry_candidates": 226,
+      "direct_call_sites": 679,
+      "external_call_targets": 0,
+      "computed_jumps": 17
+    },
+    {
+      "record_index": 2,
+      "payload_length": 49536,
+      "vector_roots": 4,
+      "reachable_instructions": 3718,
+      "reachable_bytes": 5931,
+      "function_entry_candidates": 63,
+      "direct_call_sites": 212,
+      "external_call_targets": 1,
+      "computed_jumps": 3
+    }
+  ]
+}

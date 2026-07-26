@@ -27,9 +27,11 @@ tasarım gereği salt-okunur kalıyor; bu proje onları düzenlenebilir yapmıyo
 
 Firmware'den bağımsız SPARC araştırma emülatörü henüz bu sürüme dahil
 değildir. Emülatörden elde edilen sonuçlar adresler, ham talimatlar, girdiler
-ve gözlenen çıktılarla belgelenmiştir; ancak şu anda yalnız deterministik imaj
-builder'ı, verifier ve güvenlik regresyon testleri kamuya açıktır. Emülatör
-donanım doğrulamasının yerine geçmez, onu destekleyen kanıttır. Ayrıntılar:
+ve gözlenen çıktılarla belgelenmiştir. Kamuya açık depo; deterministik imaj
+builder/verifier araçlarına ek olarak paket ve companion-record parser'larını,
+bağımsız SPARC/8051 yapısal tarayıcılarını, sembol çıkarım aracını, üretilmiş
+metadata kataloglarını ve regresyon testlerini içerir. Emülatör donanım
+doğrulamasının yerine geçmez, onu destekleyen kanıttır. Ayrıntılar:
 [docs/TOOLS.md](docs/TOOLS.md).
 
 ## Temel imajın kaynağı
@@ -111,6 +113,7 @@ modunu test eder.
 - [Paket mimarisi ve on kaydın tamamı](docs/FIRMWARE_ARCHITECTURE.md)
 - [İşlemciler, boot zinciri ve yardımcı denetleyiciler](docs/PROCESSORS_AND_BOOT.md)
 - [Ana SPARC uygulama/alt-sistem haritası](docs/MAIN_APPLICATION_MAP.md)
+- [Derin SPARC/8051 kontrol-akışı kurtarma](docs/DEEP_CONTROL_FLOW.md)
 - [Joystick olayları ve gizli menü hareketleri](docs/KEY_GESTURES.md)
 - [USB güncelleme zinciri ve dış-firmware stub'ları](docs/UPDATE_PIPELINE.md)
 - [Veri, kaynaklar, EDID ve kalıcı kayıt](docs/DATA_RESOURCES_AND_STORAGE.md)
