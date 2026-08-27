@@ -1,5 +1,7 @@
 # Samsung Odyssey G5 G55C firmware reverse engineering
 
+[![Safety tests](https://github.com/c8dhjp4tyv-bit/odyssey-g5-firmware-research/actions/workflows/tests.yml/badge.svg)](https://github.com/c8dhjp4tyv-bit/odyssey-g5-firmware-research/actions/workflows/tests.yml)
+
 Package-wide reverse engineering notes and reproducible tooling for the 32-inch Samsung
 Odyssey G5 G55C, exact model `LS32CG552EUXUF`, running firmware
 `M-C5500GGZA-1010.0[D43B]`.
@@ -154,6 +156,14 @@ Python modes.
 - It does not claim that the patch is safe for another firmware revision,
   model code/suffix, panel revision, or checksum. In particular, the 27-inch
   `LS27CG552EUXUF` is not a validated target.
+
+## Contributing, security, and citation
+
+Contributions must preserve model and firmware provenance; see
+[CONTRIBUTING.md](CONTRIBUTING.md). Safety-sensitive findings should follow
+[SECURITY.md](SECURITY.md) and the evidence rules in [SAFETY.md](SAFETY.md).
+Citation metadata is provided in [CITATION.cff](CITATION.cff); cite the exact
+commit or release tag used in addition to the repository.
 
 ## License and firmware ownership
 
