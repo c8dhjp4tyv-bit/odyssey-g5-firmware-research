@@ -5,8 +5,15 @@
 ```text
 Validated on:             2026-07-26
 Tested hardware:          LS32CG552EUXUF
-Repository state:          release branch; see current commit/tag
+Historical release tag:   v1.0.0 -> b57510b4f5b076520434e7bb5997868c55bd9ef2
+Firmware result identity: pinned by the base/output hashes and exact diff below
 ```
+
+The repository contains post-release documentation, analysis, and CI-hardening
+changes after the historical `v1.0.0` tag. For research citation, record the
+exact commit or release tag actually used rather than referring to a moving
+`main` branch. Hardware validation of the firmware result is anchored by the
+exact base/output image hashes and byte diff below.
 
 ## Build invariants
 
