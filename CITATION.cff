@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this research, please cite the repository and the exact commit or release tag used."
+title: "Samsung Odyssey G5 G55C firmware reverse engineering"
+type: software
+authors:
+  - family-names: "c8dhjp4tyv-bit"
+    alias: "c8dhjp4tyv-bit"
+repository-code: "https://github.com/c8dhjp4tyv-bit/odyssey-g5-firmware-research"
+url: "https://github.com/c8dhjp4tyv-bit/odyssey-g5-firmware-research"
+license: MIT
+abstract: >-
+  Reproducible reverse-engineering notes, structural analysis tools, generated
+  metadata catalogs, validation records, and a minimal data-only MGA factory-page
+  visibility patch for the Samsung Odyssey G5 G55C model LS32CG552EUXUF and the
+  exact pinned M-C5500GGZA-1010.0[D43B] base image. Samsung firmware is not
+  redistributed by this project.
+keywords:
+  - firmware
+  - reverse engineering
+  - Samsung Odyssey G5
+  - G55C
+  - SPARC V8
+  - 8051
+  - embedded systems
