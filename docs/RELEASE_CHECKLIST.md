@@ -2,11 +2,14 @@
 
 ```text
 Validated on:             2026-07-26
-Validation reference:     current release commit/tag
 Tested hardware:          LS32CG552EUXUF
+Historical release tag:   v1.0.0 -> b57510b4f5b076520434e7bb5997868c55bd9ef2
+Firmware result identity: pinned by exact image hashes and byte diff below
 ```
 
-Checked items below are the recorded `v1.0.0`-candidate validation. The USB
+Checked items below are the recorded firmware-result validation. The repository
+contains post-release documentation, analysis, and CI-hardening changes after
+the historical `v1.0.0` tag; cite the exact commit or tag actually used. The USB
 preparation section intentionally remains unchecked because it is a per-flash
 operator checklist and must be completed again for every physical update.
 
@@ -30,6 +33,10 @@ operator checklist and must be completed again for every physical update.
 - [x] Ghidra independently analyzed all six executable regions.
 - [x] AI, emulator, hardware, and unresolved provenance are separated.
 - [x] All local Markdown links resolve.
+- [x] Security-sensitive reporting guidance is documented in `SECURITY.md`.
+- [x] Hardware/research issue forms and a pull-request evidence checklist exist.
+- [x] GitHub Actions are pinned to verified commit SHAs and tracked by Dependabot.
+- [x] Citation metadata is provided in `CITATION.cff`.
 
 ## Build
 
