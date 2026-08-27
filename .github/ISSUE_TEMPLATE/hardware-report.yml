@@ -1,0 +1,85 @@
+name: Hardware validation report
+description: Report a reproducible observation from a physical monitor
+title: "[hardware] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not upload Samsung firmware, extracted proprietary payloads, manuals, or IDA databases. Read `SAFETY.md` and `SECURITY.md` before reporting results from modified firmware.
+  - type: input
+    id: model
+    attributes:
+      label: Exact monitor model
+      placeholder: LS32CG552EUXUF
+    validations:
+      required: true
+  - type: input
+    id: panel
+    attributes:
+      label: Panel revision
+      description: Enter "unknown" if it cannot be determined safely.
+    validations:
+      required: true
+  - type: input
+    id: firmware
+    attributes:
+      label: Firmware shown in OSD
+      placeholder: 1010.0
+    validations:
+      required: true
+  - type: input
+    id: image_hash
+    attributes:
+      label: Base image SHA-256
+      description: Required for modified-firmware results; enter "stock/unknown" only for unmodified observations.
+    validations:
+      required: true
+  - type: dropdown
+    id: input_port
+    attributes:
+      label: Input port
+      options:
+        - HDMI 1
+        - HDMI 2
+        - DisplayPort
+        - No source connected
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: mode
+    attributes:
+      label: Signal mode
+      description: Resolution, refresh rate, HDR state, Adaptive-Sync state, PC/AV mode, and picture mode.
+      placeholder: 2560x1440 @ 165 Hz; HDR off; Adaptive-Sync on; PC mode; Custom
+    validations:
+      required: true
+  - type: input
+    id: action
+    attributes:
+      label: Exact action or gesture
+      placeholder: Hold joystick UP for 5 seconds
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Observed result
+      description: Describe only what was observed. Separate interpretation from observation.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Supporting evidence
+      description: Photos, logs, hashes, offsets, or independently written notes. Do not attach proprietary firmware.
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Safety acknowledgements
+      options:
+        - label: I did not upload proprietary firmware or extracted proprietary payloads.
+          required: true
+        - label: I have identified whether this was stock, emulator-only, or physical-hardware behavior.
+          required: true
