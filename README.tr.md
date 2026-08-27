@@ -1,5 +1,7 @@
 # Samsung Odyssey G5 G55C firmware tersine mühendisliği
 
+[![Güvenlik testleri](https://github.com/c8dhjp4tyv-bit/odyssey-g5-firmware-research/actions/workflows/tests.yml/badge.svg)](https://github.com/c8dhjp4tyv-bit/odyssey-g5-firmware-research/actions/workflows/tests.yml)
+
 Bu depo, sahibine ait 32 inç Samsung Odyssey G5 G55C, tam model kodu
 `LS32CG552EUXUF`, üzerinde yürütülen firmware tersine mühendislik çalışmasının
 tekrarlanabilir araçlarını ve teknik bulgularını içerir. On kayıtlı paketin
@@ -148,3 +150,11 @@ modunu test eder.
 - Bir string'in varlığı donanım desteği kabul edilmedi.
 - Başka firmware/model/panel sürümlerinde güvenli olduğu iddia edilmedi.
   Özellikle 27 inç `LS27CG552EUXUF`, doğrulanmış hedef değildir.
+
+## Katkı, güvenlik ve atıf
+
+Katkılar model ve firmware köken bilgisini korumalıdır; ayrıntılar
+[CONTRIBUTING.md](CONTRIBUTING.md) dosyasındadır. Güvenlik açısından hassas
+bulgular [SECURITY.md](SECURITY.md) ve [SAFETY.md](SAFETY.md) kurallarına göre
+bildirilmelidir. Atıf bilgisi [CITATION.cff](CITATION.cff) içinde yer alır;
+depoya ek olarak kullanılan tam commit veya release tag'i de belirtilmelidir.
