@@ -1,6 +1,9 @@
 # Contributing
 
 Contributions are welcome when they preserve model and firmware provenance.
+For findings that could plausibly cause persistent device damage, bypass a
+model/panel safety gate, expose a destructive update path, or enable unsafe
+factory writes, read [SECURITY.md](SECURITY.md) before opening a public report.
 
 ## Required evidence
 
@@ -36,11 +39,14 @@ Feature-enabling patches additionally require:
 
 ## Reporting hardware results
 
-Record the complete state:
+Prefer the repository's **Hardware validation report** issue form. If reporting
+manually, record the complete state:
 
 ```text
 model:
+panel revision:
 firmware shown in OSD:
+base image SHA-256 (if modified):
 input port:
 source connected:
 resolution/refresh:
