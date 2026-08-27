@@ -1,0 +1,117 @@
+name: Firmware research claim
+description: Submit a new address, descriptor, handler, patch candidate, or reverse-engineering result
+title: "[research] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Claims must preserve model and firmware provenance. A string is a lead, not proof that a feature is usable. Do not attach Samsung firmware or extracted proprietary payloads.
+  - type: input
+    id: model
+    attributes:
+      label: Exact monitor model
+      placeholder: LS32CG552EUXUF
+    validations:
+      required: true
+  - type: input
+    id: panel
+    attributes:
+      label: Panel revision
+      description: Enter "unknown" if not known.
+    validations:
+      required: true
+  - type: input
+    id: firmware
+    attributes:
+      label: Firmware filename and displayed version
+    validations:
+      required: true
+  - type: input
+    id: hash
+    attributes:
+      label: Firmware SHA-256
+    validations:
+      required: true
+  - type: input
+    id: sum16
+    attributes:
+      label: Complete-file sum16
+      placeholder: D43B
+    validations:
+      required: true
+  - type: input
+    id: address
+    attributes:
+      label: VA and file offset
+      placeholder: VA 0x...; file offset 0x...
+    validations:
+      required: true
+  - type: textarea
+    id: bytes
+    attributes:
+      label: Original bytes and interpretation
+      description: Keep excerpts minimal and limited to the bytes required to support the claim.
+    validations:
+      required: true
+  - type: textarea
+    id: reachability
+    attributes:
+      label: How the address/path was reached
+      description: Cross-references, call graph, descriptor chain, dispatch table, runtime trace, or other evidence.
+    validations:
+      required: true
+  - type: dropdown
+    id: static_confidence
+    attributes:
+      label: Static-analysis confidence
+      options:
+        - CONFIRMED
+        - HIGH
+        - LIKELY
+        - UNRESOLVED
+    validations:
+      required: true
+  - type: dropdown
+    id: dynamic_confidence
+    attributes:
+      label: Emulator/dynamic confidence
+      options:
+        - CONFIRMED
+        - HIGH
+        - LIKELY
+        - UNRESOLVED
+        - Not tested
+    validations:
+      required: true
+  - type: dropdown
+    id: hardware_confidence
+    attributes:
+      label: Hardware confidence
+      options:
+        - CONFIRMED
+        - HIGH
+        - LIKELY
+        - UNRESOLVED
+        - Not tested
+    validations:
+      required: true
+  - type: textarea
+    id: patch
+    attributes:
+      label: Patch candidate, if any
+      description: Include exact minimal diff, guards, expected checksum/version changes, and why the change is considered safe. Leave blank for analysis-only reports.
+  - type: textarea
+    id: recovery
+    attributes:
+      label: Recovery analysis
+      description: Required for any proposed feature-enabling or write-path change.
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Submission checks
+      options:
+        - label: I did not upload proprietary firmware, manuals, or an IDA database containing firmware bytes.
+          required: true
+        - label: I separated observed facts from interpretation and unresolved assumptions.
+          required: true
