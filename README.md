@@ -170,3 +170,13 @@ commit or release tag used in addition to the repository.
 The scripts and original documentation are MIT licensed. Samsung firmware,
 manuals, trademarks, and product assets remain the property of their
 respective owners and are not redistributed here.
+
+## Star History
+
+<a href="https://www.star-history.com/?repos=c8dhjp4tyv-bit%2Fodyssey-g5-firmware-research&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=c8dhjp4tyv-bit/odyssey-g5-firmware-research&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=c8dhjp4tyv-bit/odyssey-g5-firmware-research&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=c8dhjp4tyv-bit/odyssey-g5-firmware-research&type=date&legend=top-left" />
+ </picture>
+</a>
